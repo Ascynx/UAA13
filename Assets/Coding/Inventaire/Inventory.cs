@@ -7,7 +7,7 @@ using TMPro;
 public class Inventory : MonoBehaviour
 {
     public List<ItemData> inventory = new List<ItemData>();
-    public int inventoryLenght = 84;
+    public int inventoryLenght = 100;
     public GameObject inventoryPanel, holderSlot;
     private GameObject slot;
     public GameObject prefabs;
@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.V) && !inventoryPanel.activeInHierarchy)
         {
             inventoryPanel.SetActive(true);
-            if(holderSlot.transform.childCount < 0)
+            if(holderSlot.transform.childCount > 0)
             {
                 foreach (Transform item in holderSlot.transform)
                 {
@@ -39,11 +39,9 @@ public class Inventory : MonoBehaviour
 
                 if (inventory[i] != null )
                 {
-                    TextMeshProUGUI amount = slot.transform.Find("amout").GetComponent<TextMeshProUGUI>();
-                    Image img = slot.transform.Find("icon").GetComponent<Image>();
-
-                    amount.text = inventory[i].amout.ToString();
-                    img.sprite = inventory[i].sprite;
+                    slot.GetComponent<Image>().sprite = inventory[i].sprite;
+                } else
+                {
                 }
             }
         }

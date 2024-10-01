@@ -16,40 +16,31 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Thread.Sleep(10);
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            oezhcv = new Vector3(0, 0.025F, 0);
+            oezhcv = new Vector3(0, 0.1F, 0);
             transform.position = transform.position + oezhcv;
-            Thread.Sleep(1);
         } 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            oezhcv = new Vector3(0, -0.025F, 0);
+            oezhcv = new Vector3(0, -0.1F, 0);
             transform.position = transform.position + oezhcv;
-            Thread.Sleep(1);
         } 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            oezhcv = new Vector3(0.025F, 0, 0);
+            oezhcv = new Vector3(0.1F, 0, 0);
             transform.position = transform.position + oezhcv;
-            Thread.Sleep(1);
         } 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            oezhcv = new Vector3(-0.025F, 0, 0);
+            oezhcv = new Vector3(-0.1F, 0, 0);
             transform.position = transform.position + oezhcv;
-            Thread.Sleep(1);
         }
         transform.eulerAngles = new Vector3(
             0,
             0,
             0
         );
-    }
-
-    void OnTriggerStay(Collider Tilemap)
-    {
-        
-        transform.position = transform.position - oezhcv;
     }
 }

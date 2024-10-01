@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item", menuName = "Items/New item")]
 public class ItemData : ScriptableObject
 {
-    public string name;
+    public string nom;
     public Sprite sprite;
     public GameObject prefab;
     public bool isStackable;
@@ -14,7 +14,7 @@ public class ItemData : ScriptableObject
     [System.Serializable]
     public enum Type
     {
-        Sword, Shield, Parchemin, Relique, Rare
+        Sword, Shield, Parchemin, Relique, Commun
     }
     public Type _type;
 }
