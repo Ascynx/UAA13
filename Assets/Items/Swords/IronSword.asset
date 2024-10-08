@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea88007bf3530b42ae61fef1885188c, type: 3}
   m_Name: IronSword
   m_EditorClassIdentifier: 
-  _name: 
-  _sprite: {fileID: 0}
-  _prefab: {fileID: 0}
+  nom: "\xC9p\xE9e"
+  sprite: {fileID: 0}
+  prefab: {fileID: 0}
+  isStackable: 0
+  amout: 
+  _type: 0

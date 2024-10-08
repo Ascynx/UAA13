@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea88007bf3530b42ae61fef1885188c, type: 3}
   m_Name: Pierre
   m_EditorClassIdentifier: 
-  nom: 
+  nom: Pierre
   sprite: {fileID: 21300000, guid: 2ff3dab78986b9c43b244314dd5e3721, type: 3}
   prefab: {fileID: 0}
   isStackable: 1

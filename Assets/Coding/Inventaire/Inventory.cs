@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour
 
                 if (inventory[i] != null )
                 {
-                    slot.GetComponent<Image>().sprite = inventory[i].sprite;
+                    slot.GetComponent<TextMeshProUGUI>().text = inventory[i].nom;
                 } else
                 {
                 }
