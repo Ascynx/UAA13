@@ -8,7 +8,6 @@ public class PickUpItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            Debug.Log("UwU");
         if (collision.gameObject.name == "Player")
         {
             Inventory.instance.inventory.Add(item);

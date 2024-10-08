@@ -12,9 +12,13 @@ public class ItemData : ScriptableObject
     public string amout;
 
     [System.Serializable]
-    public enum Type
+    public enum classe
     {
-        Sword, Shield, Parchemin, Relique, Commun
+        Sword, 
+        Shield, 
+        Parchemin, 
+        Relique, 
+        Commun
     }
-    public Type _type;
+    public classe type;
 }
