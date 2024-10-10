@@ -54930,6 +54930,7 @@ MonoBehaviour:
   inventaire: {fileID: 0}
   panelUse: {fileID: 0}
   buttonUse: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &1132496884
 GameObject:
   m_ObjectHideFlags: 0
@@ -55083,6 +55084,7 @@ MonoBehaviour:
   inventaire: {fileID: 315266397}
   panelUse: {fileID: 704658849}
   buttonUse: {fileID: 1121140327}
+  canvas: {fileID: 1365387147}
 --- !u!114 &1132496889
 MonoBehaviour:
   m_ObjectHideFlags: 0
