@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea88007bf3530b42ae61fef1885188c, type: 3}
-  m_Name: Pierre
+  m_Script: {fileID: 11500000, guid: 3bd337b0a554161408b3a14ddb83be66, type: 3}
+  m_Name: Lance-Flamme
   m_EditorClassIdentifier: 
-  nom: Pierre
-  sprite: {fileID: 21300000, guid: 2ff3dab78986b9c43b244314dd5e3721, type: 3}
-  prefab: {fileID: 0}
-  isStackable: 1
-  amout: 1
-  type: 4

@@ -17,6 +17,7 @@ public class UseItem : EventTrigger
     public GameObject panelUse;
     public GameObject buttonUse;
     public GameObject canvas;
+    public GameObject content;
 
     private GameObject panel;
     private GameObject btn1;
@@ -24,22 +25,25 @@ public class UseItem : EventTrigger
     private GameObject btn3;
     private Transform tmp;
 
+    private Transform temp;
+
     public void Start()
     {
    
     }
     public override void OnPointerClick(PointerEventData data)
     {
-        foreach (Transform child in canvas.transform)
+        foreach (Transform btn in content.transform)
         {
-            if (child.name != "Scroll View")
+            temp = btn.Find("PanelUse(Clone)");
+            if (temp != null)
             {
-                Destroy(child.gameObject);
+                Destroy(temp.gameObject);
             }
         }
 
         panel = Instantiate(panelUse, transform.position, transform.rotation);
-        panel.transform.SetParent(canvas.transform);
+        panel.transform.SetParent(this.transform);
         
         panel.transform.position = Input.mousePosition;
 
@@ -52,9 +56,11 @@ public class UseItem : EventTrigger
             case (classe.Sword):
 
                 btn2 = Instantiate(buttonUse, transform.position, transform.rotation);
-                tmp = btn1.transform.Find("Text (TMP)");
+                tmp = btn2.transform.Find("Text (TMP)");
                 tmp.GetComponent<TextMeshProUGUI>().text = "Équiper l'épée";
                 btn2.transform.SetParent(panel.transform);
+                btn2.GetComponent<EquipeItem>().objet = this.gameObject;
+                btn2.GetComponent<EquipeItem>().item = item;
                 break;
             case (classe.Shield):
                 break;

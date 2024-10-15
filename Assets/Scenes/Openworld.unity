@@ -54804,6 +54804,7 @@ GameObject:
   - component: {fileID: 1121140329}
   - component: {fileID: 1121140328}
   - component: {fileID: 1121140332}
+  - component: {fileID: 1121140333}
   m_Layer: 5
   m_Name: ButtonUse
   m_TagString: Untagged
@@ -54922,15 +54923,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1121140327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8235b58fecef554448c5f27da9bb9559, type: 3}
+  m_Script: {fileID: 11500000, guid: 40a4797a4a2a6b7409018a13f0cd34c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+  objet: {fileID: 0}
   item: {fileID: 0}
-  inventaire: {fileID: 0}
-  panelUse: {fileID: 0}
-  buttonUse: {fileID: 0}
-  canvas: {fileID: 0}
+  inventory: {fileID: 315266397}
+--- !u!114 &1121140333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121140327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1132496884
 GameObject:
   m_ObjectHideFlags: 0
@@ -55085,6 +55101,7 @@ MonoBehaviour:
   panelUse: {fileID: 704658849}
   buttonUse: {fileID: 1121140327}
   canvas: {fileID: 1365387147}
+  content: {fileID: 1855978912}
 --- !u!114 &1132496889
 MonoBehaviour:
   m_ObjectHideFlags: 0
