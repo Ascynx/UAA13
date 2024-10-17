@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
-    
+    void initTurn(mob ennemi, mob player, Attaque attackPlayer)
+    {
+        Attaque attackEnnemi = ennemi.attack[Random.Range(0, 2)];
+        turn(ennemi, player, attackEnnemi, attackPlayer)
+    }
     void turn(mob ennemi, mob player, Attaque attackEnnemi, Attaque attackPlayer)
     {
         attaque(attackPlayer, player, ref ennemi);

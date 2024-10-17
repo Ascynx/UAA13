@@ -39,8 +39,5 @@ public class mob : ScriptableObject
 
     public int manamax;
     public int manaactuel;
-
-    public Attaque attack1;
-    public Attaque attack2;
-    public Attaque attack3;
+    public Attaque[] attack;
 }

@@ -8,16 +8,9 @@ public class Inventory : MonoBehaviour
 {
     public List<ItemData> inventory = new List<ItemData>();
     public int inventoryLenght = 100;
-    public GameObject inventoryPanel, holderSlot;
-    private GameObject slot;
-    public GameObject prefabs;
+    public GameObject inventoryPanel, holderSlot, slot, prefabs;
 
-    public ItemData sword;
-    public ItemData shield;
-    public ItemData parchemin1;
-    public ItemData parchemin2;
-    public ItemData parchemin3;
-    public ItemData Relique;
+    public ItemData sword, shield, parchemin1, parchemin2, parchemin3, Relique;
 
     public static Inventory instance;
 
