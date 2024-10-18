@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Vector3 oezhcv;
+    Vector3 deplacement;
+    bool inventaireIsOuvert;
+    public GameObject inventaire;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,31 +18,34 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Thread.Sleep(10);
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (!inventaire.activeInHierarchy)
         {
-            oezhcv = new Vector3(0, 0.1F, 0);
-            transform.position = transform.position + oezhcv;
-        } 
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            oezhcv = new Vector3(0, -0.1F, 0);
-            transform.position = transform.position + oezhcv;
-        } 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            oezhcv = new Vector3(0.1F, 0, 0);
-            transform.position = transform.position + oezhcv;
-        } 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            oezhcv = new Vector3(-0.1F, 0, 0);
-            transform.position = transform.position + oezhcv;
+            Thread.Sleep(10);
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                deplacement = new Vector3(0, 0.1F, 0);
+                transform.position = transform.position + deplacement;
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                deplacement = new Vector3(0, -0.1F, 0);
+                transform.position = transform.position + deplacement;
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                deplacement = new Vector3(0.1F, 0, 0);
+                transform.position = transform.position + deplacement;
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                deplacement = new Vector3(-0.1F, 0, 0);
+                transform.position = transform.position + deplacement;
+            }
+            transform.eulerAngles = new Vector3(
+                0,
+                0,
+                0
+            );
         }
-        transform.eulerAngles = new Vector3(
-            0,
-            0,
-            0
-        );
     }
 }
