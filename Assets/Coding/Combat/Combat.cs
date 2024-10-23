@@ -1,15 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Combat : MonoBehaviour
 {
-    void initTurn(mob ennemi, mob player, Attaque attackPlayer)
+    public mob player;
+    private Transform Mob;
+    private mob ennemi;
+    public Transform FightBackground;
+    public bool playerTurn;
+    public int button;
+
+    void Fight(mob attacking, ref Transform tattacking)
     {
-        Attaque attackEnnemi = ennemi.attack[Random.Range(0, 2)];
-        turn(ennemi, player, attackEnnemi, attackPlayer);
+        FightBackground.gameObject.SetActive(true);
+        Mob = tattacking;
+        ennemi = attacking;
+        player.pvactuel = player.pvmax;
+        player.manaactuel = player.manamax;
+        ennemi.pvactuel = ennemi.pvmax;
+        ennemi.manaactuel = ennemi.manamax;
+        do
+        {
+            playerTurn = true;
+            do
+            {
+
+            } while (playerTurn);
+            switch (button)
+            {
+                case 0:
+                    initTurn(player.attack[0]);
+                    break;
+                case 1:
+                    initTurn(player.attack[1]);
+                    break;
+                case 2:
+                    initTurn(player.attack[2]);
+                    break;
+                case 3:
+                    initTurn(player.attack[3]);
+                    break;
+            }
+
+        } while (player.pvactuel > 0 && ennemi.pvactuel > 0);
+        if (player.pvactuel <= 0)
+        {
+            GameObject.FindGameObjectWithTag("Player").SetActive(false);
+        }
+        else
+        {
+            player.manaactuel = player.manamax;
+            player.pvactuel = player.pvmax;
+            tattacking.gameObject.SetActive(false);
+        }
+        FightBackground.gameObject.SetActive(false);
     }
-    void turn(mob ennemi, mob player, Attaque attackEnnemi, Attaque attackPlayer)
+    void initTurn(Attaque attackPlayer)
+    {
+        Attaque attackEnnemi;
+        do
+        {
+            attackEnnemi = ennemi.attack[Random.Range(0, 2)];
+        } while (attackEnnemi.costmana > ennemi.manaactuel);
+        turn(attackEnnemi, attackPlayer);
+    }
+    void turn(Attaque attackEnnemi, Attaque attackPlayer)
     {
         attaque(attackPlayer, player, ref ennemi);
         if (ennemi.pvactuel > 0)
@@ -19,6 +76,14 @@ public class Combat : MonoBehaviour
             if (player.pvactuel > 0)
             {
                 apliqueEffect(attackEnnemi.effet, ref player);
+                if (ennemi.pvactuel > 0)
+                {
+                    apliqueEtat(ref ennemi); 
+                    if (ennemi.pvactuel > 0)
+                    {
+                        apliqueEtat(ref player);
+                    }
+                }
             }
         }
     }
@@ -101,6 +166,17 @@ public class Combat : MonoBehaviour
             {
                 victime.pvactuel -= power;
             }
+        }
+    }
+    void apliqueEtat(ref mob victime)
+    {
+        if (victime.effet == mob.effect.Burn)
+        {
+            victime.pvmax -= (victime.pvmax/10);
+        }
+        else if (victime.effet == mob.effect.Toxic)
+        {
+            victime.pvmax -= (victime.pvmax / 15);
         }
     }
 }

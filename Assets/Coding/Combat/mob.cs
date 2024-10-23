@@ -40,4 +40,14 @@ public class mob : ScriptableObject
     public int manamax;
     public int manaactuel;
     public Attaque[] attack;
+
+    public void Update()
+    {
+        float i = 0;
+        foreach (Attaque item in attack)
+        {
+            i += item.costmana;
+        }
+        manamax = int.Parse(Mathf.Pow(i, 2).ToString());
+    }
 }

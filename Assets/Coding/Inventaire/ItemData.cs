@@ -10,6 +10,7 @@ public class ItemData : ScriptableObject
     public GameObject prefab;
     public bool isStackable;
     public string amout;
+    public Attaque attaque;
 
     [System.Serializable]
     public enum classe
@@ -21,4 +22,5 @@ public class ItemData : ScriptableObject
         Commun
     }
     public classe type;
+
 }
