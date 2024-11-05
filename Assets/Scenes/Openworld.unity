@@ -7379,6 +7379,7 @@ GameObject:
   - component: {fileID: 269043909}
   - component: {fileID: 269043908}
   - component: {fileID: 269043907}
+  - component: {fileID: 269043910}
   m_Layer: 5
   m_Name: B2
   m_TagString: Untagged
@@ -7488,6 +7489,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269043905}
   m_CullTransparentMesh: 1
+--- !u!114 &269043910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269043905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6450ea7adb7873042abb95cfafc853fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fight: {fileID: 797267426}
+  att: 2
 --- !u!1 &315266392
 GameObject:
   m_ObjectHideFlags: 0
@@ -48411,7 +48426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &797267423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55614,9 +55629,9 @@ GameObject:
   m_Component:
   - component: {fileID: 989129277}
   - component: {fileID: 989129276}
-  - component: {fileID: 989129275}
   - component: {fileID: 989129278}
   - component: {fileID: 989129279}
+  - component: {fileID: 989129280}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -55624,21 +55639,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &989129275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989129274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1fafb4e688f114bb60eaec0433fd4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  detectionRange: 100
-  player: {fileID: 0}
 --- !u!212 &989129276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55781,6 +55781,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &989129280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989129274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1fafb4e688f114bb60eaec0433fd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  detectionRange: 5
+  fightBG: {fileID: 797267422}
+  fight: {fileID: 797267426}
+  me: {fileID: 11400000, guid: e9fb3050dfbc18246be2f377031064cb, type: 2}
+  ceci: {fileID: 989129277}
 --- !u!1 &1045893601
 GameObject:
   m_ObjectHideFlags: 0
@@ -56887,6 +56905,7 @@ GameObject:
   - component: {fileID: 1760797698}
   - component: {fileID: 1760797697}
   - component: {fileID: 1760797696}
+  - component: {fileID: 1760797699}
   m_Layer: 5
   m_Name: BS
   m_TagString: Untagged
@@ -56996,6 +57015,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760797694}
   m_CullTransparentMesh: 1
+--- !u!114 &1760797699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760797694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6450ea7adb7873042abb95cfafc853fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fight: {fileID: 797267426}
+  att: 0
 --- !u!1 &1762628470
 GameObject:
   m_ObjectHideFlags: 0
@@ -57200,6 +57233,7 @@ GameObject:
   - component: {fileID: 1782481206}
   - component: {fileID: 1782481205}
   - component: {fileID: 1782481204}
+  - component: {fileID: 1782481207}
   m_Layer: 5
   m_Name: B1
   m_TagString: Untagged
@@ -57309,6 +57343,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782481202}
   m_CullTransparentMesh: 1
+--- !u!114 &1782481207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782481202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6450ea7adb7873042abb95cfafc853fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fight: {fileID: 797267426}
+  att: 1
 --- !u!1 &1855978912
 GameObject:
   m_ObjectHideFlags: 0
@@ -57383,6 +57431,7 @@ GameObject:
   - component: {fileID: 1987616802}
   - component: {fileID: 1987616801}
   - component: {fileID: 1987616800}
+  - component: {fileID: 1987616803}
   m_Layer: 5
   m_Name: B3
   m_TagString: Untagged
@@ -57492,6 +57541,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987616798}
   m_CullTransparentMesh: 1
+--- !u!114 &1987616803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987616798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6450ea7adb7873042abb95cfafc853fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fight: {fileID: 797267426}
+  att: 3
 --- !u!1 &2002531188
 GameObject:
   m_ObjectHideFlags: 0

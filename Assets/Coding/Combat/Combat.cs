@@ -5,28 +5,52 @@ using UnityEngine.Rendering;
 
 public class Combat : MonoBehaviour
 {
-    public mob player;
+    private mob player;
     private Transform Mob;
     private mob ennemi;
     public Transform FightBackground;
     public bool playerTurn;
     public int button;
+    public PlayerMob playerMob;
 
-    void Fight(mob attacking, ref Transform tattacking)
+    public void Fight(mob attacking, ref Transform tattacking)
     {
+        playerMob.UpdateMob();
+        player = playerMob.player;
         FightBackground.gameObject.SetActive(true);
         Mob = tattacking;
         ennemi = attacking;
         player.pvactuel = player.pvmax;
-        player.manaactuel = player.manamax;
         ennemi.pvactuel = ennemi.pvmax;
-        ennemi.manaactuel = ennemi.manamax;
+        player.ResetPP();
+        ennemi.ResetPP();
+        for (int i = 0; i < 4; i++)
+        {
+            if (player.attack[i] is null)
+            {
+                player.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
+            }
+        }
         do
         {
             playerTurn = true;
+            for (int i = 0; i < 4; i++)
+            {
+                if (player.attack[i].ppact == 0)
+                {
+                    player.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
+                }
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                if (ennemi.attack[i].ppact == 0)
+                {
+                    ennemi.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
+                }
+            }
             do
             {
-
+                
             } while (playerTurn);
             switch (button)
             {
@@ -63,7 +87,7 @@ public class Combat : MonoBehaviour
         do
         {
             attackEnnemi = ennemi.attack[Random.Range(0, 2)];
-        } while (attackEnnemi.costmana > ennemi.manaactuel);
+        } while (attackEnnemi.ppact > 0);
         turn(attackEnnemi, attackPlayer);
     }
     void turn(Attaque attackEnnemi, Attaque attackPlayer)

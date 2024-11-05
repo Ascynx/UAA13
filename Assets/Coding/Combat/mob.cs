@@ -41,13 +41,20 @@ public class mob : ScriptableObject
     public int manaactuel;
     public Attaque[] attack;
 
-    public void Update()
+    public void ResetPP()
     {
-        float i = 0;
         foreach (Attaque item in attack)
         {
-            i += item.costmana;
+            item.ppact = item.ppmax;
         }
-        manamax = int.Parse(Mathf.Pow(i, 2).ToString());
+    }
+
+    public mob(type type1, type type2, int pvmax, Attaque[] attack)
+    {
+        this.effet = effect.None;
+        Type1 = type1;
+        Type2 = type2;
+        this.pvmax = pvmax;
+        this.attack = attack;
     }
 }

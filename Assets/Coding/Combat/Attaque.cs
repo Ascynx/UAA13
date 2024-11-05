@@ -18,10 +18,19 @@ public class Attaque : ScriptableObject
         None
     }
 
-
+    public string nom;
     public effect effet;
     public int power;
-    public int costmana;
     public int precision;
-    
+    public int ppmax;
+    public int ppact;
+
+    public Attaque(effect ef, int pow, int pres, int pp, string nom)
+    {
+        ppmax = pp;
+        ppact = pp;
+        precision = pres;
+        effet = ef;
+        this.nom = nom;
+    }
 }
