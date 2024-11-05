@@ -2,66 +2,77 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 
-public class FicherSauvegarde
+public class FicherSauvegarde: MonoBehaviour
 {
     private static readonly string FILE_PATH = @".\gameFiles\";
-    private static readonly FicherSauvegarde INSTANCE = new FicherSauvegarde();
 
-    private Sauvegarde sauvegardeActuelle;
+    [SerializeField]
+    private Sauvegarde _sauvegardeActuelle;
+
+    private bool _saveActionLocked;
 
     public Sauvegarde Data {
-        get { return sauvegardeActuelle; }
-        private set { sauvegardeActuelle = value; value.SetParent(this); }
+        get { return _sauvegardeActuelle; }
+        private set { _sauvegardeActuelle = value; value.SetParent(this); }
     }
 
-    public static FicherSauvegarde GetInstance()
-    {
-        return INSTANCE;
-    }
-         
     private FicherSauvegarde()
-    {
+    {  
     }
+    private void Awake()
+    {
+        Data = this.AddComponent<Sauvegarde>();
+    }
+
 
     public void SetChildData(Sauvegarde sauvegarde)
     {
         Data = sauvegarde;
     }
 
-    private void QueueTask<TState>(Action<TState> callBack, TState state, bool preferLocal)
+    private Task QueueTask(Action callBack)
     {
-        ThreadPool.QueueUserWorkItem(callBack, state, preferLocal);
+        if (_saveActionLocked)
+        {
+            Debug.Log("Essayé de lancer une deuxième action sur le fichier de sauvegarde actuel alors que le fichier est déja lock.");
+            return null;
+        }
+
+        _saveActionLocked = true;
+        return Task.Run(() => callBack()).ContinueWith((result) => { _saveActionLocked = false; });
     }
 
-    public void SaveSauvegarde(string slot)
+    public Task SaveSauvegarde(string slot)
     {
-        SaveJsonObject("save-" + slot + ".json", sauvegardeActuelle);
+       return SaveJsonObject("save-" + slot + ".json", _sauvegardeActuelle);
     }
 
-    public void LoadSauvegarde(string slot)
+    public Task LoadSauvegarde(string slot)
     {
-        ReadJsonObject("save-" + slot + ".json", sauvegardeActuelle);
+        return ReadJsonObject("save-" + slot + ".json", _sauvegardeActuelle).ContinueWith((resultat) => { _sauvegardeActuelle.Slot = slot; });
     }
 
-    private void SaveJsonObject(string fileName, MonoBehaviour obj)
+    private Task SaveJsonObject(string fileName, MonoBehaviour obj)
     {
         string jsonObj = JsonUtility.ToJson(obj);
-        QueueTask((b) => SaveFile(fileName, jsonObj), false, true);
+        return QueueTask(() => SaveFile(fileName, jsonObj));
     }
 
-    private void ReadJsonObject<T>(string fileName, T obj) {
-        QueueTask(
-            (b) =>
+    private Task ReadJsonObject<T>(string fileName, T obj) {
+        return QueueTask(
+            () =>
             {
                 string jsonData = ReadFile(fileName);
                 JsonUtility.FromJsonOverwrite(jsonData, obj);
-            },
-            false,
-            true
+            }
         );
     }
 
@@ -73,18 +84,26 @@ public class FicherSauvegarde
             try
             {
 
-                DirectoryInfo fileInfo = new DirectoryInfo(file);
+                FileStream fileWriteStream;
+
+                DirectoryInfo fileInfo = new(file);
                 if (!fileInfo.Exists)
                 {
                     if (!fileInfo.Parent.Exists)
                     {
                         Directory.CreateDirectory(fileInfo.Parent.FullName);
                     }
-                    File.Create(fileInfo.FullName);
+                    fileWriteStream = File.Create(fileInfo.FullName);
+                } else
+                {
+                    fileWriteStream = File.OpenWrite(file);
                 }
                 //Ré-écrire fichier si existe déja, écrire sinon
 
-                File.WriteAllText(file, fileContent); // Sharing violation on path
+                byte[] byteFileContent = Encoding.UTF8.GetBytes(fileContent);
+
+                fileWriteStream.Write(byteFileContent);
+                fileWriteStream.Close();
             } catch (IOException e)
             {
                 Debug.LogError("Erreur pendant l'écriture d'un fichier de sauvegarde " + e.Message + " " + e.StackTrace);
@@ -116,4 +135,5 @@ public class FicherSauvegarde
 
         return null;
     }
+
 }

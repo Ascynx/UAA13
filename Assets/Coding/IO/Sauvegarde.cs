@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,21 +7,41 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class Sauvegarde : MonoBehaviour
 {
-    private FicherSauvegarde parent;
+    private FicherSauvegarde _parent;
+
+    [SerializeField]
+    private string _slot = "UNKNOWN";
 
     public void SetParent(FicherSauvegarde parent)
     {
-        this.parent = parent;
+        this._parent = parent;
     }
 
     [SerializeField]
-    private DictWrapper<string, bool> events = new();
+    private DictWrapper<string, bool> _events = new();
 
-    public void test()
+    public FicherSauvegarde Parent { get { return _parent; } }
+    public DictWrapper<string, bool> Events { get {  return _events; } }
+    public string Slot { get { return _slot; } set { _slot = value; } }
+
+
+    public void SauvegardeFichier()
     {
-        events.Dictionary.Add("test", true);
-        events.Dictionary.Add("test2", false);
+        SauvegardeFichier(this._slot);
+    }
 
-        parent.SaveSauvegarde("1");
+    public void SauvegardeFichier(string slot)
+    {
+        _parent.SaveSauvegarde(slot);
+    }
+
+    public void LoadFichier()
+    {
+        LoadFichier(this._slot);
+    }
+
+    public void LoadFichier(string slot)
+    {
+        _parent.LoadSauvegarde(slot);
     }
 }
