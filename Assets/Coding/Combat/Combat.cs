@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -12,18 +13,16 @@ public class Combat : MonoBehaviour
     public bool playerTurn;
     public int button;
     public PlayerMob playerMob;
+    public mob attacking;
+    public SpriteRenderer sprite;
 
     public void Fight(mob attacking, ref Transform tattacking)
     {
+        this.attacking = attacking;
+        sprite.sprite = attacking.sprite;
         playerMob.UpdateMob();
         player = playerMob.player;
         FightBackground.gameObject.SetActive(true);
-        Mob = tattacking;
-        ennemi = attacking;
-        player.pvactuel = player.pvmax;
-        ennemi.pvactuel = ennemi.pvmax;
-        player.ResetPP();
-        ennemi.ResetPP();
         for (int i = 0; i < 4; i++)
         {
             if (player.attack[i] is null)
@@ -31,9 +30,19 @@ public class Combat : MonoBehaviour
                 player.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
             }
         }
+        GameObject.Find("BST").GetComponent<TextMeshProUGUI>().text = player.attack[0].name;
+        for (int i = 1; i < 4; i++)
+        {
+            GameObject.Find("B"+i+"T").GetComponent<TextMeshProUGUI>().text = player.attack[i].name;
+        }
+        Mob = tattacking;
+        ennemi = attacking;
+        player.pvactuel = player.pvmax;
+        ennemi.pvactuel = ennemi.pvmax;
+        player.ResetPP();
+        ennemi.ResetPP();
         do
         {
-            playerTurn = true;
             for (int i = 0; i < 4; i++)
             {
                 if (player.attack[i].ppact == 0)
@@ -41,16 +50,18 @@ public class Combat : MonoBehaviour
                     player.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
                 }
             }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < ennemi.attack.Length; i++)
             {
                 if (ennemi.attack[i].ppact == 0)
                 {
                     ennemi.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
                 }
+
             }
+            playerTurn = true;
             do
             {
-                
+
             } while (playerTurn);
             switch (button)
             {
@@ -75,8 +86,6 @@ public class Combat : MonoBehaviour
         }
         else
         {
-            player.manaactuel = player.manamax;
-            player.pvactuel = player.pvmax;
             tattacking.gameObject.SetActive(false);
         }
         FightBackground.gameObject.SetActive(false);

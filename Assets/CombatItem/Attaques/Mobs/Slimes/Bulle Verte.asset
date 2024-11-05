@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f60566e4a0880541800fd67245947eb, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 3bd337b0a554161408b3a14ddb83be66, type: 3}
+  m_Name: Bulle Verte
   m_EditorClassIdentifier: 
-  effet: 0
-  Type1: 0
-  Type2: 0
-  pvmax: 0
-  pvactuel: 0
-  manamax: 0
-  manaactuel: 0
-  attack: []
+  nom: Bulle Verte
+  effet: 7
+  power: 10
+  precision: 90
+  ppmax: 20
+  ppact: 20

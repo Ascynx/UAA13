@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f60566e4a0880541800fd67245947eb, type: 3}
-  m_Name: Slime
+  m_Name: Slime Vert
   m_EditorClassIdentifier: 
   effet: 0
-  Type1: 0
-  Type2: 0
-  pvmax: 100
-  pvactuel: 100
-  manamax: 0
-  manaactuel: 0
-  attack: []
+  Type1: 6
+  Type2: 6
+  pvmax: 50
+  pvactuel: 50
+  attack:
+  - {fileID: 11400000, guid: 919d6bc5801343a4e9f6e5914e7d2532, type: 2}
+  sprite: {fileID: 21300000, guid: bdb1e23dca5e9544e9f6189efccf4428, type: 3}

@@ -37,15 +37,19 @@ public class mob : ScriptableObject
     public int pvmax;
     public int pvactuel;
 
-    public int manamax;
-    public int manaactuel;
     public Attaque[] attack;
+
+    public Sprite sprite;
 
     public void ResetPP()
     {
         foreach (Attaque item in attack)
         {
-            item.ppact = item.ppmax;
+            if (item != null)
+            {
+                item.ppact = item.ppmax;
+                Debug.Log(item.name);
+            }
         }
     }
 
