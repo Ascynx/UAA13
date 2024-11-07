@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -114,7 +115,7 @@ public class Combat : MonoBehaviour
         Attaque attackEnnemi;
         do
         {
-            attackEnnemi = ennemi.attack[Random.Range(0, 2)];
+            attackEnnemi = ennemi.attack[UnityEngine.Random.Range(0, 2)];
         } while (attackEnnemi.ppact > 0);
         turn(attackEnnemi, attackPlayer);
     }
@@ -149,21 +150,21 @@ public class Combat : MonoBehaviour
         } else 
         if (effet == Attaque.effect.Paralize)
         {
-            if (Random.Range(0, 10) == 0 && (Type1 != mob.type.Elec || Type2 != mob.type.Elec) && isnotboss)
+            if (UnityEngine.Random.Range(0, 10) == 0 && (Type1 != mob.type.Elec || Type2 != mob.type.Elec) && isnotboss)
             {
                 effect = mob.effect.Paralize;
             }
         } 
         else if (effet == Attaque.effect.Burn)
         {
-            if (Random.Range(0, 10) == 0 && (Type1 != mob.type.Fire || Type2 != mob.type.Fire) && isnotboss)
+            if (UnityEngine.Random.Range(0, 10) == 0 && (Type1 != mob.type.Fire || Type2 != mob.type.Fire) && isnotboss)
             {
                 effect = mob.effect.Burn;
             }
         }
         else if(effet == Attaque.effect.Toxic && isnotboss)
         {
-            if (Random.Range(0, 10) == 0)
+            if (    UnityEngine.Random.Range(0, 10) == 0)
             {
                 effect = mob.effect.Toxic;
             }
@@ -177,27 +178,27 @@ public class Combat : MonoBehaviour
         }
         else if (effet == Attaque.effect.LowerPrecision)
         {
-            if (Random.Range(0, 10) == 0 && isnotsemboss)
+            if (UnityEngine.Random.Range(0, 10) == 0 && isnotsemboss)
             {
                 effect = mob.effect.LowerPrecision;
             }
         }
         else if (effet == Attaque.effect.LowerPower)
         {
-            if (Random.Range(0, 10) == 0 && isnotsemboss)
+            if (UnityEngine.Random.Range(0, 10) == 0 && isnotsemboss)
             {
                 effect = mob.effect.LowerPower;
             }
         }
         else if (effet == Attaque.effect.LowerDef)
         {
-            if (Random.Range(0, 10) == 0 && isnotsemboss)
+            if (UnityEngine.Random.Range(0, 10) == 0 && isnotsemboss)
             {
                 effect = mob.effect.LowerDef;
             }
         }
     }
-    void attaque(Attaque att, mob.effect effetA, mob.effect effetE, ref int pv)
+    void attaque(Attaque att, mob.effect effetA, mob.effect effetE, ref int pv)     
     {
         int precision = att.precision;
         int power = att.power;
@@ -212,9 +213,9 @@ public class Combat : MonoBehaviour
         {
             power = power * 2;
         }
-        if (Random.Range(0, 100) <= precision)
+        if (UnityEngine.Random.Range(0, 100) <= precision)
         {
-            if (effetA != mob.effect.Paralize || Random.Range(0, 1) == 0)
+            if (effetA != mob.effect.Paralize || UnityEngine.Random.Range(0, 1) == 0)
             {
                 pv -= power;
             }
