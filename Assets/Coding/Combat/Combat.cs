@@ -69,21 +69,8 @@ public class Combat : MonoBehaviour
             {
 
             } while (playerTurn);
-            switch (button)
-            {
-                case 0:
-                    initTurn(attack[0]);
-                    break;
-                case 1:
-                    initTurn(attack[1]);
-                    break;
-                case 2:
-                    initTurn(attack[2]);
-                    break;
-                case 3:
-                    initTurn(attack[3]);
-                    break;
-            }
+            
+            initTurn(attack[button]);
 
         } while (playerPv > 0 && ennemi.pvactuel > 0);
         if (playerPv <= 0)
