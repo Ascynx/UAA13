@@ -1,53 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Combat : MonoBehaviour
 {
-    private mob player;
     private Transform Mob;
     private mob ennemi;
     public Transform FightBackground;
     public bool playerTurn;
     public int button;
-    public PlayerMob playerMob;
     public mob attacking;
     public SpriteRenderer sprite;
+    public Inventory inventaire;
+
+    int playerPv;
+    Attaque[] attack = new Attaque[4];
+    mob.effect pEffect;
 
     public void Fight(mob attacking, ref Transform tattacking)
     {
         this.attacking = attacking;
         sprite.sprite = attacking.sprite;
-        playerMob.UpdateMob();
-        player = playerMob.player;
+        initAtt(inventaire.sword, out attack[0]);
+        initAtt(inventaire.parchemin1, out attack[1]);
+        initAtt(inventaire.parchemin2, out attack[2]);
+        initAtt(inventaire.parchemin3, out attack[3]);
         FightBackground.gameObject.SetActive(true);
         for (int i = 0; i < 4; i++)
         {
-            if (player.attack[i] is null)
+            if (attack[i] is null)
             {
-                player.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
+                attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
             }
         }
-        GameObject.Find("BST").GetComponent<TextMeshProUGUI>().text = player.attack[0].name;
+        GameObject.Find("BST").GetComponent<TextMeshProUGUI>().text = attack[0].name;
         for (int i = 1; i < 4; i++)
         {
-            GameObject.Find("B"+i+"T").GetComponent<TextMeshProUGUI>().text = player.attack[i].name;
+            GameObject.Find("B"+i+"T").GetComponent<TextMeshProUGUI>().text = attack[i].name;
         }
         Mob = tattacking;
         ennemi = attacking;
-        player.pvactuel = player.pvmax;
+        playerPv = 100;
         ennemi.pvactuel = ennemi.pvmax;
-        player.ResetPP();
         ennemi.ResetPP();
         do
         {
             for (int i = 0; i < 4; i++)
             {
-                if (player.attack[i].ppact == 0)
+                if (attack[i].ppact == 0)
                 {
-                    player.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
+                    attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
                 }
             }
             for (int i = 0; i < ennemi.attack.Length; i++)
@@ -66,21 +71,21 @@ public class Combat : MonoBehaviour
             switch (button)
             {
                 case 0:
-                    initTurn(player.attack[0]);
+                    initTurn(attack[0]);
                     break;
                 case 1:
-                    initTurn(player.attack[1]);
+                    initTurn(attack[1]);
                     break;
                 case 2:
-                    initTurn(player.attack[2]);
+                    initTurn(attack[2]);
                     break;
                 case 3:
-                    initTurn(player.attack[3]);
+                    initTurn(attack[3]);
                     break;
             }
 
-        } while (player.pvactuel > 0 && ennemi.pvactuel > 0);
-        if (player.pvactuel <= 0)
+        } while (playerPv > 0 && ennemi.pvactuel > 0);
+        if (playerPv <= 0)
         {
             GameObject.FindGameObjectWithTag("Player").SetActive(false);
         }
@@ -89,6 +94,20 @@ public class Combat : MonoBehaviour
             tattacking.gameObject.SetActive(false);
         }
         FightBackground.gameObject.SetActive(false);
+    }
+
+    public void initAtt(ItemData enter, out Attaque sortie)
+    {
+
+        if (enter != null)
+        {
+            sortie = enter.attaque;
+        }
+        else
+        {
+
+            sortie = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
+        }
     }
     void initTurn(Attaque attackPlayer)
     {
@@ -101,115 +120,115 @@ public class Combat : MonoBehaviour
     }
     void turn(Attaque attackEnnemi, Attaque attackPlayer)
     {
-        attaque(attackPlayer, player, ref ennemi);
+        attaque(attackPlayer, pEffect, ennemi.effet, ref ennemi.pvactuel);
         if (ennemi.pvactuel > 0)
         {
-            apliqueEffect(attackPlayer.effet, ref ennemi);
-            attaque(attackEnnemi, ennemi, ref player);
-            if (player.pvactuel > 0)
+            apliqueEffect(attackPlayer.effet,  ennemi.Type1,  ennemi.Type2, ref ennemi.effet, ref ennemi.pvactuel);
+            attaque(attackEnnemi, ennemi.effet, pEffect, ref playerPv);
+            if (playerPv > 0)
             {
-                apliqueEffect(attackEnnemi.effet, ref player);
+                apliqueEffect(attackEnnemi.effet, mob.type.None, mob.type.None, ref pEffect, ref playerPv);
                 if (ennemi.pvactuel > 0)
                 {
-                    apliqueEtat(ref ennemi); 
+                    apliqueEtat(ennemi.pvmax, ref ennemi.effet,ref ennemi.pvactuel); 
                     if (ennemi.pvactuel > 0)
                     {
-                        apliqueEtat(ref player);
+                        apliqueEtat(100, ref pEffect, ref playerPv);
                     }
                 }
             }
         }
     }
-    void apliqueEffect(Attaque.effect effet, ref mob victime)
+    void apliqueEffect(Attaque.effect effet, mob.type Type1, mob.type Type2, ref mob.effect effect, ref int pv )
     {
-        bool isnotboss = (victime.Type1 != mob.type.Boss || victime.Type2 != mob.type.Boss);
-        bool isnotsemboss = (victime.Type1 != mob.type.Boss || victime.Type2 != mob.type.Boss) && (victime.Type1 != mob.type.SemiBoss || victime.Type2 != mob.type.SemiBoss);
-        if (effet == Attaque.effect.None || victime.effet != mob.effect.None)
+        bool isnotboss = (Type1 != mob.type.Boss || Type2 != mob.type.Boss);
+        bool isnotsemboss = (Type1 != mob.type.Boss || Type2 != mob.type.Boss) && (Type1 != mob.type.SemiBoss || Type2 != mob.type.SemiBoss);
+        if (effet == Attaque.effect.None || effect != mob.effect.None)
         {
 
-        }
+        } else 
         if (effet == Attaque.effect.Paralize)
         {
-            if (Random.Range(0, 10) == 0 && (victime.Type1 != mob.type.Elec || victime.Type2 != mob.type.Elec) && isnotboss)
+            if (Random.Range(0, 10) == 0 && (Type1 != mob.type.Elec || Type2 != mob.type.Elec) && isnotboss)
             {
-                victime.effet = mob.effect.Paralize;
+                effect = mob.effect.Paralize;
             }
         } 
         else if (effet == Attaque.effect.Burn)
         {
-            if (Random.Range(0, 10) == 0 && (victime.Type1 != mob.type.Fire || victime.Type2 != mob.type.Fire) && isnotboss)
+            if (Random.Range(0, 10) == 0 && (Type1 != mob.type.Fire || Type2 != mob.type.Fire) && isnotboss)
             {
-                victime.effet = mob.effect.Burn;
+                effect = mob.effect.Burn;
             }
         }
         else if(effet == Attaque.effect.Toxic && isnotboss)
         {
             if (Random.Range(0, 10) == 0)
             {
-                victime.effet = mob.effect.Toxic;
+                effect = mob.effect.Toxic;
             }
         }
         else if (effet == Attaque.effect.PowerWind)
         {
-            if ((victime.Type1 == mob.type.Aerial || victime.Type2 == mob.type.Aerial) && isnotsemboss)
+            if ((Type1 == mob.type.Aerial || Type2 == mob.type.Aerial) && isnotsemboss)
             {
-                victime.pvactuel = 0;
+                pv = 0;
             }
         }
         else if (effet == Attaque.effect.LowerPrecision)
         {
             if (Random.Range(0, 10) == 0 && isnotsemboss)
             {
-                victime.effet = mob.effect.LowerPrecision;
+                effect = mob.effect.LowerPrecision;
             }
         }
         else if (effet == Attaque.effect.LowerPower)
         {
             if (Random.Range(0, 10) == 0 && isnotsemboss)
             {
-                victime.effet = mob.effect.LowerPower;
+                effect = mob.effect.LowerPower;
             }
         }
         else if (effet == Attaque.effect.LowerDef)
         {
             if (Random.Range(0, 10) == 0 && isnotsemboss)
             {
-                victime.effet = mob.effect.LowerDef;
+                effect = mob.effect.LowerDef;
             }
         }
     }
-    void attaque(Attaque att, mob attaquant, ref mob victime)
+    void attaque(Attaque att, mob.effect effetA, mob.effect effetE, ref int pv)
     {
         int precision = att.precision;
         int power = att.power;
-        if (attaquant.effet == mob.effect.LowerPrecision)
+        if (effetA == mob.effect.LowerPrecision)
         {
             precision = precision / 2;
-        } else if (attaquant.effet == mob.effect.LowerPower)
+        } else if (effetA == mob.effect.LowerPower)
         {
             power = power / 2;
         }
-        else if (victime.effet == mob.effect.LowerDef)
+        else if (effetE == mob.effect.LowerDef)
         {
             power = power * 2;
         }
         if (Random.Range(0, 100) <= precision)
         {
-            if (attaquant.effet != mob.effect.Paralize || Random.Range(0, 1) == 0)
+            if (effetA != mob.effect.Paralize || Random.Range(0, 1) == 0)
             {
-                victime.pvactuel -= power;
+                pv -= power;
             }
         }
     }
-    void apliqueEtat(ref mob victime)
+    void apliqueEtat(int pvMax, ref mob.effect effet, ref int pv)
     {
-        if (victime.effet == mob.effect.Burn)
+        if (effet == mob.effect.Burn)
         {
-            victime.pvmax -= (victime.pvmax/10);
+            pv -= (pvMax / 10);
         }
-        else if (victime.effet == mob.effect.Toxic)
+        else if (effet == mob.effect.Toxic)
         {
-            victime.pvmax -= (victime.pvmax / 15);
+            pv -= (pvMax / 15);
         }
     }
 }
