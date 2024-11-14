@@ -8,17 +8,19 @@ public class SauvegardeEditor : Editor
     {
         DrawDefaultInspector();
 
-        FicherSauvegarde fichier = (FicherSauvegarde) target;
-
-        string slot = "1";
-        EditorGUILayout.TextField("Slot Actuel", slot);
-        if (GUILayout.Button("Sauvegarde"))
+        FicherSauvegarde fichier = (FicherSauvegarde)target;
+        if (fichier.Data != null)
         {
-            fichier.SaveSauvegarde(slot).ContinueWith((v) => Debug.Log("Sauvé fichier slot: " + slot));
-        }
-        if (GUILayout.Button("Load"))
-        {
-            fichier.LoadSauvegarde(slot).ContinueWith((v) => Debug.Log("Chargé fichier slot: " + slot));
+            string slot = fichier.Data.Slot;
+            fichier.Data.Slot = EditorGUILayout.TextField("Slot Actuel", fichier.Data.Slot);
+            if (GUILayout.Button("Sauvegarde"))
+            {
+                fichier.SaveSauvegarde(slot).ContinueWith((v) => Debug.Log("Sauvé fichier slot: " + slot));
+            }
+            if (GUILayout.Button("Load"))
+            {
+                fichier.LoadSauvegarde(slot).ContinueWith((v) => Debug.Log("Chargé fichier slot: " + slot));
+            }
         }
     }
 }
