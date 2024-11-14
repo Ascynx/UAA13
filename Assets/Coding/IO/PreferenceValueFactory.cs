@@ -5,104 +5,102 @@ using UnityEngine;
 
 public class PreferenceValueFactory
 {
-    public static Value<string> CreateHandleOf(string key, string value)
+    public static ValueHandle<string> CreateHandleOf(string key, string t)
     {
-        return new StringValue(key, value);
+        return new StringHandle(key);
     }
 
-    public static Value<int> CreateHandleOf(string key, int value)
+    public static ValueHandle<int> CreateHandleOf(string key, int t)
     {
-        return new IntValue(key, value);
+        return new IntHandle(key);
     }
 
-    public static Value<float> CreateHandleOf(string key, float value)
+    public static ValueHandle<float> CreateHandleOf(string key, float t)
     {
-        return new FloatValue(key, value);
+        return new FloatHandle(key);
     }
 
-    public static Value<bool> CreateHandleOf(string key, bool value)
+    public static ValueHandle<bool> CreateHandleOf(string key, bool t)
     {
-        return new BooleanValue(key, value);
+        return new BooleanHandle(key);
     }
 
-    public record BooleanValue : Value<bool>
+    public record BooleanHandle : ValueHandle<bool>
     {
-        public BooleanValue(string key,  bool value) : base(key, value) { }
+        public BooleanHandle(string key) : base(key) { }
 
         public override bool GetValue()
         {
             return PlayerPrefs.GetInt(_key) == 1;
         }
 
-        public override void SetValue()
+        public override void SetValue(bool value)
         {
-            PlayerPrefs.SetInt(_key, _value ? 1 : 0);
+            PlayerPrefs.SetInt(_key, value ? 1 : 0);
         }
     }
 
-    public record FloatValue : Value<float>
+    public record FloatHandle : ValueHandle<float>
     {
-        public FloatValue(string key, float value) : base(key, value) {}
+        public FloatHandle(string key) : base(key) { }
 
         public override float GetValue()
         {
             return PlayerPrefs.GetFloat(_key);
         }
 
-        public override void SetValue()
+        public override void SetValue(float value)
         {
-            PlayerPrefs.SetFloat(_key, _value);
+            PlayerPrefs.SetFloat(_key, value);
         }
     }
 
-    public record IntValue : Value<int>
+    public record IntHandle : ValueHandle<int>
     {
-        public IntValue(string key, int value) : base(key, value) {}
+        public IntHandle(string key) : base(key) { }
 
         public override int GetValue()
         {
             return PlayerPrefs.GetInt(_key);
         }
 
-        public override void SetValue()
+        public override void SetValue(int value)
         {
-            PlayerPrefs.SetInt(_key, _value);
+            PlayerPrefs.SetInt(_key, value);
         }
     }
 
-    public record StringValue : Value<string>
+    public record StringHandle : ValueHandle<string>
     {
-        public StringValue(string key, string value): base (key, value) {}
+        public StringHandle(string key): base(key) {}
 
         public override string GetValue()
         {
             return PlayerPrefs.GetString(_key);
         }
 
-        public override void SetValue()
+        public override void SetValue(string value)
         {
-            PlayerPrefs.SetString(_key, _value);
+            PlayerPrefs.SetString(_key, value);
         }
     }
 
-    public abstract record Value<T>
+    public abstract record ValueHandle<T>
     {
-        protected T _value;
         protected string _key;
 
-        protected Value(string key, T value)
+        protected ValueHandle(string key)
         {
-            this._key = key;
-            this._value = value;
+            _key = key;
         }
-
-        public abstract void SetValue();
 
         public abstract T GetValue();
 
-        void Clear()
+        public abstract void SetValue(T value);
+
+        protected static void Clear(string key)
         {
-            PlayerPrefs.DeleteKey(this._key);
+            PlayerPrefs.DeleteKey(key);
         }
     }
 }
