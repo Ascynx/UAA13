@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    float vitesse;
+    public float baseVitesse;
+    public Rigidbody2D ceci;
     Vector3 deplacement;
     bool inventaireIsOuvert;
     public GameObject inventaire;
@@ -20,27 +23,32 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!inventaire.activeInHierarchy)
         {
-            Thread.Sleep(10);
+            vitesse = baseVitesse;
+            if (Input.GetKey(KeyCode.Keypad0))
+            {
+                vitesse += baseVitesse;
+            }
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                deplacement = new Vector3(0, 0.1F, 0);
-                transform.position = transform.position + deplacement;
+                deplacement = new Vector3(0, vitesse, 0);
+                ceci.velocity = deplacement;
             }
-            if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow))
             {
-                deplacement = new Vector3(0, -0.1F, 0);
-                transform.position = transform.position + deplacement;
+                deplacement = new Vector3(0, -vitesse, 0);
+                ceci.velocity = deplacement;
             }
-            if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.RightArrow))
             {
-                deplacement = new Vector3(0.1F, 0, 0);
-                transform.position = transform.position + deplacement;
+                deplacement = new Vector3(vitesse, 0, 0);
+                ceci.velocity = deplacement;
             }
-            if (Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(KeyCode.LeftArrow))
             {
-                deplacement = new Vector3(-0.1F, 0, 0);
-                transform.position = transform.position + deplacement;
+                deplacement = new Vector3(-vitesse, 0, 0);
+                ceci.velocity = deplacement;
             }
+            else ceci.velocity = new Vector3(0,0,0);
             transform.eulerAngles = new Vector3(
                 0,
                 0,

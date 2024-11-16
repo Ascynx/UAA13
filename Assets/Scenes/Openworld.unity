@@ -7320,6 +7320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4d627887f4f1f498f4fdaa2bb80c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseVitesse: 5
+  ceci: {fileID: 256976684}
   inventaire: {fileID: 920575074}
 --- !u!212 &256976681
 SpriteRenderer:
@@ -7383,7 +7385,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 315266395}
@@ -55753,7 +55755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &989129276
 SpriteRenderer:
   m_ObjectHideFlags: 0
