@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class Combat : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Combat : MonoBehaviour
     public Transform FightBackground;
     public bool playerTurn;
     public int button;
-    public mob attacking;
+    private mob attacking;
     public SpriteRenderer sprite;
     public Inventory inventaire;
 
@@ -23,6 +24,7 @@ public class Combat : MonoBehaviour
 
     public void Fight(mob attacking, ref Transform tattacking)
     {
+        
         this.attacking = attacking;
         sprite.sprite = attacking.sprite;
         initAtt(inventaire.sword, out attack[0]);
@@ -30,6 +32,8 @@ public class Combat : MonoBehaviour
         initAtt(inventaire.parchemin2, out attack[2]);
         initAtt(inventaire.parchemin3, out attack[3]);
         FightBackground.gameObject.SetActive(true);
+
+
         for (int i = 0; i < 4; i++)
         {
             if (attack[i] is null)
@@ -42,37 +46,33 @@ public class Combat : MonoBehaviour
         {
             GameObject.Find("B"+i+"T").GetComponent<TextMeshProUGUI>().text = attack[i].name;
         }
-        Mob = tattacking;
-        ennemi = attacking;
         playerPv = 100;
-        ennemi.pvactuel = ennemi.pvmax;
-        ennemi.ResetPP();
-        do
-        {
+        attacking.pvactuel = attacking.pvmax;
+        attacking.ResetPP();
+
+
+        //do
+        //{
             for (int i = 0; i < 4; i++)
             {
                 if (attack[i].ppact == 0)
                 {
                     attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
+                    if (i == 0) GameObject.Find("BST").GetComponent<TextMeshProUGUI>().text = attack[0].name;
+                    else GameObject.Find("B" + i + "T").GetComponent<TextMeshProUGUI>().text = attack[i].name;
                 }
             }
-            for (int i = 0; i < ennemi.attack.Length; i++)
+            for (int i = 0; i < attacking.attack.Length; i++)
             {
-                if (ennemi.attack[i].ppact == 0)
+                if (attacking.attack[i].ppact == 0)
                 {
-                    ennemi.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
+                    attacking.attack[i] = new Attaque(Attaque.effect.None, 1, 99, 1, "Lutte");
                 }
-
             }
-            playerTurn = true;
-            do
-            {
+            wait();
+            //initTurn(attack[button]);
 
-            } while (playerTurn);
-            
-            initTurn(attack[button]);
-
-        } while (playerPv > 0 && ennemi.pvactuel > 0);
+        //} while (playerPv > 0 && attacking.pvactuel > 0);
         if (playerPv <= 0)
         {
             GameObject.FindGameObjectWithTag("Player").SetActive(false);
@@ -82,6 +82,14 @@ public class Combat : MonoBehaviour
             tattacking.gameObject.SetActive(false);
         }
         FightBackground.gameObject.SetActive(false);
+    }
+
+    public IEnumerator wait()
+    {
+        playerTurn = true;
+        Debug.Log("A");
+        yield return new WaitUntil(() => !playerTurn);
+        Debug.Log("B");
     }
 
     public void initAtt(ItemData enter, out Attaque sortie)
@@ -102,24 +110,24 @@ public class Combat : MonoBehaviour
         Attaque attackEnnemi;
         do
         {
-            attackEnnemi = ennemi.attack[UnityEngine.Random.Range(0, 2)];
+            attackEnnemi = attacking.attack[UnityEngine.Random.Range(0, attacking.attack.Length)];
         } while (attackEnnemi.ppact > 0);
         turn(attackEnnemi, attackPlayer);
     }
     void turn(Attaque attackEnnemi, Attaque attackPlayer)
     {
-        attaque(attackPlayer, pEffect, ennemi.effet, ref ennemi.pvactuel);
-        if (ennemi.pvactuel > 0)
+        attaque(attackPlayer, pEffect, attacking.effet, ref attacking.pvactuel);
+        if (attacking.pvactuel > 0)
         {
-            apliqueEffect(attackPlayer.effet,  ennemi.Type1,  ennemi.Type2, ref ennemi.effet, ref ennemi.pvactuel);
-            attaque(attackEnnemi, ennemi.effet, pEffect, ref playerPv);
+            apliqueEffect(attackPlayer.effet,  attacking.Type1,  attacking.Type2, ref attacking.effet, ref attacking.pvactuel);
+            attaque(attackEnnemi, attacking.effet, pEffect, ref playerPv);
             if (playerPv > 0)
             {
                 apliqueEffect(attackEnnemi.effet, mob.type.None, mob.type.None, ref pEffect, ref playerPv);
-                if (ennemi.pvactuel > 0)
+                if (attacking.pvactuel > 0)
                 {
-                    apliqueEtat(ennemi.pvmax, ref ennemi.effet,ref ennemi.pvactuel); 
-                    if (ennemi.pvactuel > 0)
+                    apliqueEtat(attacking.pvmax, ref attacking.effet,ref attacking.pvactuel); 
+                    if (attacking                                                                           .pvactuel > 0)
                     {
                         apliqueEtat(100, ref pEffect, ref playerPv);
                     }

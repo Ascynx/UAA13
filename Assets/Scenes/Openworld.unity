@@ -48615,7 +48615,6 @@ MonoBehaviour:
   FightBackground: {fileID: 797267423}
   playerTurn: 0
   button: 0
-  attacking: {fileID: 0}
   sprite: {fileID: 114724274}
   inventaire: {fileID: 315266397}
 --- !u!1 &853977635
@@ -55755,7 +55754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &989129276
 SpriteRenderer:
   m_ObjectHideFlags: 0
