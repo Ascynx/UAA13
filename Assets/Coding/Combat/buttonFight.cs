@@ -1,20 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class buttonFight : MonoBehaviour
+public class buttonFight : EventTrigger
 
 {
     public Combat fight;
     public int att;
     // Start is called before the first frame update
-    public void OnClick(PointerEventData eventData)
+    public override void OnPointerClick(PointerEventData eventData)
     {
-        if (fight.playerTurn)
-        {
+        Debug.Log(att.ToString());
             fight.button = att;
-            fight.playerTurn = false;
-        }
+            fight.FightAdvence();
     }
 }
