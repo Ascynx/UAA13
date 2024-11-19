@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -18,42 +14,82 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    public Vector2 startMarker;
+    public Vector2 endMarker;
+
+    private float movementSpeed = 1.0F;
+    private readonly int framesForMovement = 45;
+    private float movementStartedFramesAgo = -1;
+
     void Update()
     {
         if (!inventaire.activeInHierarchy)
         {
-            vitesse = baseVitesse;
-            if (Input.GetKey(KeyCode.Keypad0))
+            bool inMovement = false;
+            if (movementStartedFramesAgo != -1)
             {
-                vitesse += baseVitesse;
+                float ratioCovered = (movementStartedFramesAgo / (framesForMovement / movementSpeed));
+                Vector2 lerpPosition = Vector2.Lerp(startMarker, endMarker, ratioCovered);
+                ceci.position = lerpPosition;
+                movementStartedFramesAgo += 1;
+                if (ratioCovered >= 1)
+                {
+                    movementStartedFramesAgo = -1;
+                }
+                if (ratioCovered > -1)
+                {
+                    inMovement = true;
+                }
             }
-            if (Input.GetKey(KeyCode.UpArrow))
+
+
+
+            if (!inMovement)
             {
-                deplacement = new Vector3(0, vitesse, 0);
-                ceci.velocity = deplacement;
+                Vector2 velocity;
+                vitesse = baseVitesse;
+                if (Keybinds.Courir.isPressed)
+                {
+                    vitesse += baseVitesse;
+                }
+                if (Keybinds.Up.isPressed)
+                {
+                    deplacement = new Vector3(0, 1, 0);
+                    velocity = deplacement;
+                }
+                else if (Keybinds.Down.isPressed)
+                {
+                    deplacement = new Vector3(0, -1, 0);
+                    velocity = deplacement;
+                }
+                else if (Keybinds.Right.isPressed)
+                {
+                    deplacement = new Vector3(1, 0, 0);
+                    velocity = deplacement;
+                }
+                else if (Keybinds.Left.isPressed)
+                {
+                    deplacement = new Vector3(-1, 0, 0);
+                    velocity = deplacement;
+                }
+                else velocity = new Vector3(0, 0, 0);
+
+                transform.eulerAngles = new Vector3(
+                    0,
+                    0,
+                    0
+                );
+
+                
+                if (velocity != new Vector2(0, 0))
+                {
+                    movementSpeed = vitesse / baseVitesse;
+                    startMarker = ceci.position;
+                    endMarker = startMarker + velocity;
+                    movementStartedFramesAgo = 0;
+                }
+                
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
-            {
-                deplacement = new Vector3(0, -vitesse, 0);
-                ceci.velocity = deplacement;
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                deplacement = new Vector3(vitesse, 0, 0);
-                ceci.velocity = deplacement;
-            }
-            else if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                deplacement = new Vector3(-vitesse, 0, 0);
-                ceci.velocity = deplacement;
-            }
-            else ceci.velocity = new Vector3(0,0,0);
-            transform.eulerAngles = new Vector3(
-                0,
-                0,
-                0
-            );
         }
     }
 }
