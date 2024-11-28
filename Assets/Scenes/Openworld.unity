@@ -7749,6 +7749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6450ea7adb7873042abb95cfafc853fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Delegates: []
   fight: {fileID: 797267426}
   att: 2
 --- !u!1 &315266392
@@ -48808,7 +48809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &797267423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48844,15 +48845,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_Material: {fileID: 2100000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
   m_Color: {r: 0.3372549, g: 0.42352945, b: 0.5647059, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2003031978, guid: e990060b32882e647b77e3418ea7303d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -48883,11 +48884,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FightBackground: {fileID: 797267423}
-  playerTurn: 0
-  button: 0
   sprite: {fileID: 114724274}
   inventaire: {fileID: 315266397}
-  textPlayerPV: {fileID: 0}
+  textPlayerPV: {fileID: 4002415}
+  textMobPV: {fileID: 334410935}
+  Player: {fileID: 256976679}
+  playerPv: 0
 --- !u!1 &853977635
 GameObject:
   m_ObjectHideFlags: 0
@@ -57415,6 +57417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6450ea7adb7873042abb95cfafc853fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Delegates: []
   fight: {fileID: 797267426}
   att: 0
 --- !u!1 &1762628470
@@ -57743,6 +57746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6450ea7adb7873042abb95cfafc853fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Delegates: []
   fight: {fileID: 797267426}
   att: 1
 --- !u!1 &1855978912
@@ -57941,6 +57945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6450ea7adb7873042abb95cfafc853fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Delegates: []
   fight: {fileID: 797267426}
   att: 3
 --- !u!1 &2002531188

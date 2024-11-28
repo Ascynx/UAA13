@@ -12,8 +12,6 @@ public class buttonFight : EventTrigger
     // Start is called before the first frame update
     public override void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(att.ToString());
-            fight.button = att;
-            fight.FightAdvence();
+            fight.FightAdvence(att);
     }
 }

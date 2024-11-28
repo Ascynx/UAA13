@@ -29,6 +29,7 @@ public class Attaque : ScriptableObject
     {
         ppmax = pp;
         ppact = pp;
+        power = pow;
         precision = pres;
         effet = ef;
         this.nom = nom;
