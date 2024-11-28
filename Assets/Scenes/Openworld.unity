@@ -7302,6 +7302,7 @@ GameObject:
   - component: {fileID: 256976685}
   - component: {fileID: 256976686}
   - component: {fileID: 256976687}
+  - component: {fileID: 256976688}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7321,11 +7322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4d627887f4f1f498f4fdaa2bb80c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseVitesse: 1
+  baseVitesse: 5
   ceci: {fileID: 256976684}
   inventaire: {fileID: 920575074}
-  startMarker: {x: 0, y: 0}
-  endMarker: {x: 0, y: 0}
+  accelerationDirection: 3
+  arrowLength: 1
 --- !u!212 &256976681
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7497,6 +7498,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sauvegardeActuelle: {fileID: 0}
+--- !u!114 &256976688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256976679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 03558cb9e189d2b4080d57e4ab37a424, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 3c4d627887f4f1f498f4fdaa2bb80c6f, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: abe17551-4265-4f35-8fc4-b980a7015e98
+    m_ActionName: OpenWorld/Direction[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 3c4d627887f4f1f498f4fdaa2bb80c6f, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8e5bac51-91cf-4eae-9d19-d47274fe7d5e
+    m_ActionName: OpenWorld/Sprint[/Keyboard/numpad0,/Keyboard/leftShift]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Clavier (Fleches)
+  m_DefaultActionMap: OpenWorld
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &269043905
 GameObject:
   m_ObjectHideFlags: 0
