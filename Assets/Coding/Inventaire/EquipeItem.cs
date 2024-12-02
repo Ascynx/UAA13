@@ -14,87 +14,56 @@ public class EquipeItem : EventTrigger
     public Inventory inventory;
     public override void OnPointerClick(PointerEventData data)
     {
-        int i;
-        if (int.TryParse(objet.name[7].ToString(), out i))
-        {
-            switch (item.type)
+        ItemData PlaceHolder;
+        int i = int.Parse(objet.name[7].ToString());
+            switch (item.GetType().ToString())
             {
-                case (classe.Sword):
+                case ("Sword"):
                     if (inventory.sword == null)
                     {
-                        inventory.sword = item;
-                        inventory.inventory.RemoveAt(i);
+                        PlaceHolder = inventory.sword;
+                        inventory.sword = (Sword)item;
+                        inventory.inventory[i] = PlaceHolder;
                     }
 
                     break;
-                case (classe.Shield):
+                case ("Shield"):
                     if (inventory.shield == null)
                     {
-                        inventory.shield = item;
-                        inventory.inventory.RemoveAt(i);
+                        PlaceHolder = inventory.shield;
+                        inventory.shield = (Shield)item;
+                        inventory.inventory[i] = PlaceHolder;
                     }
                     break;
-                case (classe.Parchemin):
+                case ("Parchemin"):
                     if (inventory.parchemin1 == null)
                     {
-                        inventory.parchemin1 = item;
-                        inventory.inventory.RemoveAt(i);
+                        PlaceHolder = inventory.parchemin1;
+                        inventory.parchemin1 = (Parchemin)item;
+                        inventory.inventory[i] = PlaceHolder;
                     }
                     else if (inventory.parchemin2 == null)
                     {
-                        inventory.parchemin2 = item;
-                        inventory.inventory.RemoveAt(i);
+                        PlaceHolder = inventory.parchemin2;
+                        inventory.parchemin2 = (Parchemin)item;
+                        inventory.inventory[i] = PlaceHolder;
                     }
                     else if (inventory.parchemin3 == null)
                     {
-                        inventory.parchemin3 = item;
-                        inventory.inventory.RemoveAt(i);
+                        PlaceHolder = inventory.parchemin3;
+                        inventory.parchemin3 = (Parchemin)item;
+                        inventory.inventory[i] = PlaceHolder;
                     }
                     break;
-                case (classe.Relique):
-                    if (inventory.Relique == null)
+                case ("Relique"):
+                    if (inventory.relique == null)
                     {
-                        inventory.Relique = item;
-                        inventory.inventory.RemoveAt(i);
+                        PlaceHolder = inventory.relique;
+                        inventory.relique = (Relique)item;
+                        inventory.inventory[i] = PlaceHolder;
                     }
                     break;
             }
-        }
-        else
-        {
-            switch (item.type)
-            {
-                case (classe.Sword):
-                    inventory.inventory.Add(item);
-                    inventory.sword = null;
-                    break;
-                case (classe.Shield):
-                    inventory.inventory.Add(item);
-                    inventory.shield = null;
-                    break;
-                case (classe.Parchemin):
-                    if (inventory.parchemin3 == item)
-                    {
-                        inventory.inventory.Add(item);
-                        inventory.parchemin3 = null;
-                    }
-                    else if (inventory.parchemin2 == item)
-                    {
-                        inventory.inventory.Add(item);
-                        inventory.parchemin2 = null;
-                    }
-                    else if (inventory.parchemin1 == item)
-                    {
-                        inventory.inventory.Add(item);
-                        inventory.parchemin1 = null;
-                    }
-                    break;
-                case (classe.Relique):
-                    inventory.inventory.Add(item);
-                    inventory.Relique = null;
-                    break;
-            }
-        }
         inventory.Fire();
     }
 }

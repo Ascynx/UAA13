@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: IronSword
-  m_EditorClassIdentifier: Assembly-CSharp::Sword
+  m_Script: {fileID: 11500000, guid: 3bd337b0a554161408b3a14ddb83be66, type: 3}
+  m_Name: Fusil
+  m_EditorClassIdentifier: 
   nom: 
-  Description: 
-  sprite: {fileID: 0}
-  attaque: {fileID: 0}
+  effet: 0
+  power: 0
+  precision: 0
+  ppmax: 0
+  ppact: 0

@@ -36,6 +36,7 @@ public class mob : ScriptableObject
 
     public int pvmax;
     public int pvactuel;
+    public int def;
 
     public Attaque[] attack;
 

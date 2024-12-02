@@ -52,8 +52,8 @@ public class UseItem : EventTrigger
         tmp.GetComponent<TextMeshProUGUI>().text = "Info";
         btn1.transform.SetParent(panel.transform);
 
-        switch (item.type)  {
-            case (classe.Sword):
+        switch (item.GetType().ToString())  {
+            case "Sword":
 
                 btn2 = Instantiate(buttonUse, transform.position, transform.rotation);
                 tmp = btn2.transform.Find("Text (TMP)");
@@ -62,14 +62,13 @@ public class UseItem : EventTrigger
                 btn2.GetComponent<EquipeItem>().objet = this.gameObject;
                 btn2.GetComponent<EquipeItem>().item = item;
                 break;
-            case (classe.Shield):
+            case "Shield":
                 break;
-            case (classe.Parchemin):
+            case "Parchemin":
                 break;
-            case (classe.Relique):
+            case "Relique":
                 break;
-            case (classe.Commun):
-                break;
+            default: break;
         }
     }
 

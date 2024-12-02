@@ -10,7 +10,10 @@ public class Inventory : MonoBehaviour
     public int inventoryLenght = 100;
     public GameObject inventoryPanel, holderSlot, slot, prefabs;
 
-    public ItemData sword, shield, parchemin1, parchemin2, parchemin3, Relique;
+    public Sword sword;
+    public Shield shield;
+    public Parchemin parchemin1, parchemin2, parchemin3;
+    public Relique relique;
 
     public static Inventory instance;
 
@@ -72,12 +75,12 @@ public class Inventory : MonoBehaviour
                 slot.GetComponent<UseItem>().item = parchemin3;
                 slot.transform.name = "itemTMP parchemin3";
             }
-            if (Relique != null)
+            if (relique != null)
             {
                 slot = Instantiate(prefabs, transform.position, transform.rotation);
                 slot.transform.SetParent(holderSlot.transform);
-                slot.GetComponent<TextMeshProUGUI>().text = Relique.nom + " - Relique active";
-                slot.GetComponent<UseItem>().item = Relique;
+                slot.GetComponent<TextMeshProUGUI>().text = relique.nom + " - Relique active";
+                slot.GetComponent<UseItem>().item = relique;
                 slot.transform.name = "itemTMP Relique";
             }
             for (int i = 0; i < inventory.Count; i++)
@@ -150,12 +153,12 @@ public class Inventory : MonoBehaviour
             slot.GetComponent<UseItem>().item = parchemin3;
             slot.transform.name = "itemTMP parchemin3";
         }
-        if (Relique != null)
+        if (relique != null)
         {
             slot = Instantiate(prefabs, transform.position, transform.rotation);
             slot.transform.SetParent(holderSlot.transform);
-            slot.GetComponent<TextMeshProUGUI>().text = Relique.nom + " - Relique active";
-            slot.GetComponent<UseItem>().item = Relique;
+            slot.GetComponent<TextMeshProUGUI>().text = relique.nom + " - Relique active";
+            slot.GetComponent<UseItem>().item = relique;
             slot.transform.name = "itemTMP Relique";
         }
         for (int i = 0; i < inventory.Count; i++)
