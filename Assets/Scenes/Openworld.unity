@@ -7902,19 +7902,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763d837c0c40c7d4a9cb37fec00cdc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory:
-  - {fileID: 11400000, guid: e73c621db0fa9b8478fa08552edff3f7, type: 2}
+  inventory: []
   inventoryLenght: 100
   inventoryPanel: {fileID: 920575074}
   holderSlot: {fileID: 1855978912}
   slot: {fileID: 0}
   prefabs: {fileID: 1132496884}
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  parchemin1: {fileID: 0}
-  parchemin2: {fileID: 0}
-  parchemin3: {fileID: 0}
-  Relique: {fileID: 0}
+  sword: {fileID: 11400000, guid: e73c621db0fa9b8478fa08552edff3f7, type: 2}
+  shield: {fileID: 11400000, guid: 3ac607ef774feb54eac7417a61bfdd9c, type: 2}
+  parchemin1: {fileID: 11400000, guid: cebeebeffd02a0e4bb5978ddb68a1bbe, type: 2}
+  parchemin2: {fileID: 11400000, guid: 18b9f70d0def5ea418c07c3100fa7c0d, type: 2}
+  parchemin3: {fileID: 11400000, guid: 016497bfa5a7da54b913295c98324b20, type: 2}
+  relique: {fileID: 0}
 --- !u!1 &334410933
 GameObject:
   m_ObjectHideFlags: 0

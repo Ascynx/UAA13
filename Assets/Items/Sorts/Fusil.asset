@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Fusil
   m_EditorClassIdentifier: Assembly-CSharp::Parchemin
-  nom: 
-  Description: 
+  nom: Tir
+  Description: "Une balle est tir\xE9e pour un coup peu pr\xE9cis mais d\xE9vastateur"
   sprite: {fileID: 0}
-  attaque: {fileID: 0}
+  attaque: {fileID: 11400000, guid: 8bc79bcded1803f40bf6a7b407139cde, type: 2}

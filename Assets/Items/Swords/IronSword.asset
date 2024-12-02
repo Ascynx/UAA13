@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: IronSword
   m_EditorClassIdentifier: Assembly-CSharp::Sword
-  nom: 
-  Description: 
+  nom: "\xC9p\xE9e d'Acier"
+  Description: "Une \xE9trange \xE9p\xE9e en m\xE9tal"
   sprite: {fileID: 0}
-  attaque: {fileID: 0}
+  attaque: {fileID: 11400000, guid: 71f7ede2588ed2c40ae3aa6bb18ff499, type: 2}

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd337b0a554161408b3a14ddb83be66, type: 3}
   m_Name: Dard
   m_EditorClassIdentifier: 
-  nom: 
-  effet: 0
-  power: 0
-  precision: 0
-  ppmax: 0
-  ppact: 0
+  nom: Dard
+  effet: 2
+  power: 5
+  precision: 100
+  ppmax: 15
+  ppact: 15

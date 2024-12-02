@@ -12,24 +12,25 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class Combat : MonoBehaviour
 {
-    private Transform Mob;
-    private mob ennemi;
+    public Transform Mob;
+    public mob ennemi;
     public Transform FightBackground;
-    private mob attacking;
-    private Transform tattacking;
+    public mob attacking;
+    public Transform tattacking;
     public SpriteRenderer sprite;
     public Inventory inventaire;
     public TextMeshProUGUI textPlayerPV, textMobPV;
     public GameObject Player;
 
     public int playerPv;
-    Attaque[] attack = new Attaque[4];
-    mob.effect pEffect;
+    public Attaque[] attack = new Attaque[4];
+    public mob.effect pEffect;
 
 
     public void Fight(mob attacking, ref Transform tattacking)
     {
-
+        textPlayerPV.color = Color.white;
+        textMobPV.color = Color.white;
         this.attacking = attacking;
         this.tattacking = tattacking;
         sprite.sprite = attacking.sprite;
@@ -87,6 +88,59 @@ public class Combat : MonoBehaviour
         {
             textPlayerPV.text = playerPv.ToString() + "/100 PV";
             textMobPV.text = attacking.pvactuel.ToString() + "/" + attacking.pvmax.ToString() + " PV";
+
+            switch (attacking.effet)
+            {
+                case mob.effect.Paralize:
+                    textMobPV.color = Color.yellow;
+                    break;
+                case mob.effect.Burn:
+                    textMobPV.color = Color.red;
+                    break;
+                case mob.effect.Toxic:
+                    textMobPV.color = Color.magenta;
+                    break;
+                case mob.effect.LowerPrecision:
+                    textMobPV.color = Color.gray;
+                    break;
+                case mob.effect.LowerPower:
+                    textMobPV.color = Color.green;
+                    break;
+                case mob.effect.LowerDef:
+                    textMobPV.color = Color.blue;
+                    break;
+                case mob.effect.None:
+                    textMobPV.color = Color.white;
+                    break;
+                default:
+                    break;
+            }
+            switch (pEffect)
+            {
+                case mob.effect.Paralize:
+                    textPlayerPV.color = Color.yellow;
+                    break;
+                case mob.effect.Burn:
+                    textPlayerPV.color = Color.red;
+                    break;
+                case mob.effect.Toxic:
+                    textPlayerPV.color = Color.magenta;
+                    break;
+                case mob.effect.LowerPrecision:
+                    textPlayerPV.color = Color.gray;
+                    break;
+                case mob.effect.LowerPower:
+                    textPlayerPV.color = Color.green;
+                    break;
+                case mob.effect.LowerDef:
+                    textPlayerPV.color = Color.blue;
+                    break;
+                case mob.effect.None:
+                    textPlayerPV.color = Color.white;
+                    break;
+                default:
+                    break;
+            }
         }
     }
     void initAtt(ItemData enter, out Attaque sortie)
@@ -138,6 +192,13 @@ public class Combat : MonoBehaviour
         {
 
         }
+        else if (effet == Attaque.effect.Burn)
+        {
+            if (UnityEngine.Random.Range(0, 10) == 0 && (Type1 != mob.type.Fire || Type2 != mob.type.Fire) && isnotboss)
+            {
+                effect = mob.effect.Burn;
+            }
+        }
         else
         if (effet == Attaque.effect.Paralize)
         {
@@ -146,19 +207,9 @@ public class Combat : MonoBehaviour
                 effect = mob.effect.Paralize;
             }
         }
-        else if (effet == Attaque.effect.Burn)
-        {
-            if (UnityEngine.Random.Range(0, 10) == 0 && (Type1 != mob.type.Fire || Type2 != mob.type.Fire) && isnotboss)
-            {
-                effect = mob.effect.Burn;
-            }
-        }
         else if (effet == Attaque.effect.Toxic && isnotboss)
         {
-            if (UnityEngine.Random.Range(0, 10) == 0)
-            {
-                effect = mob.effect.Toxic;
-            }
+            effect = mob.effect.Toxic;
         }
         else if (effet == Attaque.effect.PowerWind)
         {
@@ -220,11 +271,11 @@ public class Combat : MonoBehaviour
     {
         if (effet == mob.effect.Burn)
         {
-            pv -= (pvMax / 10);
+            pv -=  10;
         }
         else if (effet == mob.effect.Toxic)
         {
-            pv -= (pvMax / 15);
+            pv -= (pvMax / 10);
         }
     }
 }

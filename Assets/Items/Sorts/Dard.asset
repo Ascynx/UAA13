@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Dard
   m_EditorClassIdentifier: Assembly-CSharp::Parchemin
-  nom: 
-  Description: 
+  nom: Dard
+  Description: "Un dard toxique pique l'ennemi pour lui faire des d\xE9gats sur la
+    dur\xE9e."
   sprite: {fileID: 0}
-  attaque: {fileID: 0}
+  attaque: {fileID: 11400000, guid: bcb90924b92d37d4aa47ed5407f90aa3, type: 2}

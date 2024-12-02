@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Ventilo
   m_EditorClassIdentifier: Assembly-CSharp::Parchemin
-  nom: 
-  Description: 
+  nom: Ventilateur
+  Description: "De l'air est envoy\xE9e pour chasser les ennemis a\xE9riens."
   sprite: {fileID: 0}
-  attaque: {fileID: 0}
+  attaque: {fileID: 11400000, guid: 292678e06150a6a4eb1b591910a69da6, type: 2}

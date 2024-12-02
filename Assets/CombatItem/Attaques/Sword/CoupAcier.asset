@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd337b0a554161408b3a14ddb83be66, type: 3}
   m_Name: CoupAcier
   m_EditorClassIdentifier: 
-  nom: 
-  effet: 0
-  power: 0
-  precision: 0
-  ppmax: 0
-  ppact: 0
+  nom: Coup d'Acier
+  effet: 7
+  power: 15
+  precision: 100
+  ppmax: 100
+  ppact: 100
