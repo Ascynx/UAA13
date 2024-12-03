@@ -7325,7 +7325,9 @@ MonoBehaviour:
   baseVitesse: 5
   ceci: {fileID: 256976684}
   inventaire: {fileID: 920575074}
-  accelerationDirection: 3
+  inputIntegration: {fileID: 0}
+  directionAcceleration: 3
+  estEnSprint: 0
   arrowLength: 1
 --- !u!212 &256976681
 SpriteRenderer:
@@ -7511,7 +7513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 03558cb9e189d2b4080d57e4ab37a424, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:

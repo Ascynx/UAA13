@@ -9,49 +9,51 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D ceci;
     bool inventaireIsOuvert;
     public GameObject inventaire;
+
+    public InputSystemIntegration inputIntegration;
+    private void Awake()
+    {
+        inputIntegration = ScriptableObject.CreateInstance<InputSystemIntegration>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
     }
 
-    public float accelerationDirection = 3F;
-
-    public void OnDirection(InputAction.CallbackContext valeur)
+    public float directionAcceleration = 10F;
+    [SerializeField] public Boolean estEnSprint = false;
+    Vector2 movementVector = Vector2.zero;
+    
+    public void OnDirection(InputValue value)
     {
+        Vector2 vecteurMouvement = value.Get<Vector2>();
+        OnEditMovement(vecteurMouvement);
+    }
 
+    public void OnSprint(InputValue value)
+    {
+        var sprintPressedPercent = value.Get<float>();
+        estEnSprint = sprintPressedPercent > 0.5F;
+    }
+
+    private void OnEditMovement(Vector2 velocity)
+    {
+        movementVector = velocity.normalized;
     }
 
     void Update()
     {
-        if (!inventaire.activeInHierarchy)
+        if (inputIntegration.SetActionState(inventaireIsOuvert, "OpenWorld", out bool prev) && (prev && !inventaireIsOuvert))
         {
-            Vector2 velocity = new Vector2(0.0F, 0.0F);
-            if (Keybinds.Up.isPressed)
-            {
-                velocity += new Vector2(0, 1);
-            }
-            if (Keybinds.Down.isPressed)
-            {
-                velocity += new Vector2(0, -1);
-            }
-
-            if (Keybinds.Right.isPressed)
-            {
-                velocity += new Vector2(1, 0);
-            }
-            if (Keybinds.Left.isPressed)
-            {
-                velocity += new Vector2(-1, 0);
-            }
-
-            float speed = baseVitesse * (Keybinds.Courir.isPressed ? 2 : 1);
-            if (velocity.magnitude > 1) velocity.Normalize();
-            Vector2 targetVelocity = velocity * speed;
-            Vector2 newVelocity = Vector2.MoveTowards(ceci.velocity, targetVelocity, Time.deltaTime * accelerationDirection);
-            
-            ceci.velocity = newVelocity;
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            //l'état précédent est actif, l'état actuel est inactif, on reset donc le vecteur de mouvement.
+            movementVector = Vector2.zero;
         }
+
+        float speed = baseVitesse * (estEnSprint ? 2 : 1);
+        Vector2 targetVelocity = movementVector * speed;
+        ceci.velocity = Vector2.MoveTowards(ceci.velocity, targetVelocity, Time.deltaTime * directionAcceleration);
+        transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
 
