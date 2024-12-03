@@ -8,6 +8,7 @@ public class Attaque : ScriptableObject
     [System.Serializable]
     public enum effect
     {
+        None,
         Paralize,
         Burn,
         Toxic,
@@ -15,7 +16,6 @@ public class Attaque : ScriptableObject
         LowerPrecision,
         LowerPower,
         LowerDef,
-        None
     }
 
     public string nom;

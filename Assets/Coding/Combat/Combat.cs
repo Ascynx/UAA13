@@ -30,6 +30,8 @@ public class Combat : MonoBehaviour
     public void Fight(mob attacking, ref Transform tattacking)
     {
         textPlayerPV.color = Color.white;
+        pEffect = mob.effect.None;
+        attacking.effet = mob.effect.None;
         textMobPV.color = Color.white;
         this.attacking = attacking;
         this.tattacking = tattacking;
@@ -72,7 +74,7 @@ public class Combat : MonoBehaviour
             }
         }
         initTurn(attack[att]);
-        if (playerPv < 0 || attacking.pvactuel < 0)
+        if (playerPv <= 0 || attacking.pvactuel <= 0)
         {
             if (playerPv <= 0)
             {

@@ -8,24 +8,24 @@ public class mob : ScriptableObject
     [System.Serializable]
     public enum type
     {
+        None,
         Fire,
         Elec,
         Aerial,
         Water,
         Boss,
         SemiBoss,
-        None
     }
     [System.Serializable]
     public enum effect
     {
+        None,
         Paralize,
         Burn,
         Toxic,
         LowerPrecision,
         LowerPower,
         LowerDef,
-        None
     }
 
 
