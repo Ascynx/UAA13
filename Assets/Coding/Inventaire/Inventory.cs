@@ -15,8 +15,7 @@ public class Inventory : MonoBehaviour
     public Parchemin parchemin1, parchemin2, parchemin3;
     public Relique relique;
 
-    public static Inventory instance;
-
+    public static Inventory instance; 
     private void Awake()
     {
         instance = this;
