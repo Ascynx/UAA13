@@ -5,33 +5,36 @@ using UnityEngine;
 [System.Serializable]
 public class MobAI : MonoBehaviour
 {
+    public mob me;
     public float moveSpeed;
     public float detectionRange;
-    private Transform player;
-    public GameObject fightBG;
-    public Combat fight;
-    public mob me;
-    public Transform ceci;
 
-    public float distanceToPlayer;
-    void Start()
-    {
-        player = GameObject.Find("Player").transform;
-    }
+
+    private Transform player;
+    private GameObject fightBG;
+    private float distanceToPlayer;
     private void Update()
     {
+        player = GameObject.Find("Player").transform;
+        fightBG = GameObject.Find("Canvas").transform.Find("FightBackground").gameObject;
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (distanceToPlayer < detectionRange && !fightBG.activeInHierarchy)
+        if (distanceToPlayer < detectionRange)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
-            if (distanceToPlayer <= 1)
+            if (!fightBG.activeInHierarchy)
             {
-                fight.Fight(me, ref ceci);
+                GetComponent<Rigidbody2D>().velocity = (player.position - transform.position).normalized;
+                if (distanceToPlayer <= 1)
+                {
+                fightBG.GetComponent<Combat>().Fight(me, transform);
+                }
             }
-        }
-        
+        else GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        } else GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+        transform.eulerAngles = new Vector3(
+                0,
+                0,
+                0
+            );
     }
 }
 

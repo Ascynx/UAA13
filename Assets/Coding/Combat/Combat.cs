@@ -27,7 +27,7 @@ public class Combat : MonoBehaviour
     public mob.effect pEffect;
 
 
-    public void Fight(mob attacking, ref Transform tattacking)
+    public void Fight(mob attacking, Transform tattacking)
     {
         textPlayerPV.color = Color.white;
         pEffect = mob.effect.None;

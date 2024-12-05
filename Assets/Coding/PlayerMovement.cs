@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 deplacement;
     bool inventaireIsOuvert;
     public GameObject inventaire;
-    public GameObject canvas;
+    public GameObject canvas, templates;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(canvas);
+        DontDestroyOnLoad(templates);
     }
 
     // Update is called once per frame
