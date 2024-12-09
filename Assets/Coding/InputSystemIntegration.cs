@@ -16,6 +16,13 @@ public class InputSystemIntegration : ScriptableObject
         iconsManager = ScriptableObject.CreateInstance<InputIconsManager>();
     }
 
+    /// <summary>
+    /// Permet de changer l'état d'une action en particulier
+    /// </summary>
+    /// <param name="state">le nouvel état de l'action</param>
+    /// <param name="action">l'identifier de l'action</param>
+    /// <param name="previousState">l'état avant le changement (donne false si l'action n'as pas été possible.)</param>
+    /// <returns>Si l'état de l'action a bien été changé</returns>
     public bool SetActionState(bool state, string action, out bool previousState)
     {
         if (controls.FindAction(action) is InputAction inputAction)
