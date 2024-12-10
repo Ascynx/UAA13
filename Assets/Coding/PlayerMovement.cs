@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D ceci;
     Vector3 deplacement;
     bool inventaireIsOuvert;
-    public GameObject inventaire;
-    public GameObject canvas, templates;
+    GameObject inventaire;
+    GameObject canvas, templates;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +22,17 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(this);
-        DontDestroyOnLoad(canvas);
-        DontDestroyOnLoad(templates);
+        ceci.fixedAngle = true;
     }
+
 
     // Update is called once per frame
     void Update()
     {
+        canvas = GameObject.Find("TG/Canvas");
+        inventaire = GameObject.Find("TG/Canvas/Scroll View");
+        templates = GameObject.Find("TG/Templates");
+
         if (!inventaire.activeInHierarchy)
         {
             vitesse = baseVitesse;
@@ -56,11 +61,6 @@ public class PlayerMovement : MonoBehaviour
                 ceci.velocity = deplacement;
             }
             else ceci.velocity = new Vector3(0,0,0);
-            transform.eulerAngles = new Vector3(
-                0,
-                0,
-                0
-            );
         }
     }
 }

@@ -18,9 +18,8 @@ public class Combat : MonoBehaviour
     public mob attacking;
     public Transform tattacking;
     public SpriteRenderer sprite;
-    public Inventory inventaire;
+    Inventory inventaire;
     public TextMeshProUGUI textPlayerPV, textMobPV;
-    public GameObject Player;
 
     public int playerPv;
     public Attaque[] attack = new Attaque[4];
@@ -29,6 +28,7 @@ public class Combat : MonoBehaviour
 
     public void Fight(mob attacking, Transform tattacking)
     {
+        inventaire = GameObject.Find("Player/Main Camera").GetComponent<Inventory>();
         textPlayerPV.color = Color.white;
         pEffect = mob.effect.None;
         attacking.effet = mob.effect.None;
@@ -78,13 +78,13 @@ public class Combat : MonoBehaviour
         {
             if (playerPv <= 0)
             {
-                Player.SetActive(false);
+
             }
             else
             {
                 tattacking.gameObject.SetActive(false);
+                FightBackground.gameObject.SetActive(false);
             }
-            FightBackground.gameObject.SetActive(false);
         }
         else
         {

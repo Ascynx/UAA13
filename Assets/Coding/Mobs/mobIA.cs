@@ -9,14 +9,13 @@ public class MobAI : MonoBehaviour
     public float moveSpeed;
     public float detectionRange;
 
-
+    public Combat combat;
     private Transform player;
-    private GameObject fightBG;
+    public GameObject fightBG;
     private float distanceToPlayer;
     private void Update()
     {
         player = GameObject.Find("Player").transform;
-        fightBG = GameObject.Find("Canvas").transform.Find("FightBackground").gameObject;
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer < detectionRange)
         {
@@ -25,7 +24,7 @@ public class MobAI : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = (player.position - transform.position).normalized;
                 if (distanceToPlayer <= 1)
                 {
-                fightBG.GetComponent<Combat>().Fight(me, transform);
+                    combat.Fight(me, transform);
                 }
             }
         else GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
