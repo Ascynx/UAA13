@@ -1,5 +1,7 @@
 using System;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -57,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    #if UNITY_EDITOR
     [SerializeField][Range(0.5F, 2)] private float arrowLength = 1.0F;
     private void OnDrawGizmos()
     {
@@ -74,4 +77,5 @@ public class PlayerMovement : MonoBehaviour
         Handles.color = Color.red;
         Handles.ArrowHandleCap(0, position, Quaternion.LookRotation(new Vector3(velocity.x, velocity.y, 0)), arrowLength, EventType.Repaint);
     }
+    #endif
 }

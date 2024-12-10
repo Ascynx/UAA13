@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.Utilities;
+using static InputIconsManager;
 
 public class InputSystemIntegration : ScriptableObject
 {
@@ -72,5 +73,10 @@ public class InputSystemIntegration : ScriptableObject
 
             inputAction.Enable();
         }
+    }
+
+    public InputIconsManager GetIconsManager()
+    {
+        return iconsManager;
     }
 }

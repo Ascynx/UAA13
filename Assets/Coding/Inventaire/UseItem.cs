@@ -1,14 +1,7 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 using static ItemData;
-using static Unity.VisualScripting.Metadata;
 
 public class UseItem : EventTrigger
 {
