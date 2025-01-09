@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f60566e4a0880541800fd67245947eb, type: 3}
-  m_Name: SlimeVege
+  m_Name: Rose Verte
   m_EditorClassIdentifier: 
   effet: 0
-  Type1: 0
+  Type1: 5
   Type2: 0
-  pvmax: 50
-  pvactuel: -10
-  def: 0
+  pvmax: 120
+  pvactuel: 120
+  def: 1
   attack:
-  - {fileID: 11400000, guid: 4195b16a8bba47342a03f222fd754575, type: 2}
-  sprite: {fileID: -7889237558116400291, guid: 7a0f68d57d59b8e45b2ceeb066ee3155, type: 3}
+  - {fileID: 11400000, guid: 3943c32c63e231b41a1ffec099849f1c, type: 2}
+  - {fileID: 11400000, guid: 3587df6f2abb160419a4a0cad3131dce, type: 2}
+  sprite: {fileID: 0}

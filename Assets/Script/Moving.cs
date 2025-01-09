@@ -16,6 +16,7 @@ public class Moving : MonoBehaviour
     public Sprite Left;
 
     public SpriteRenderer ActSprite;
+    public int milsec;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,6 +27,8 @@ public class Moving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        ceci.velocity = new Vector3(0, 0, 0);
         vitesse = baseVitesse;
         if (Input.GetKey(mapping.Run))
         {
@@ -51,7 +54,6 @@ public class Moving : MonoBehaviour
             ceci.velocity = new Vector3(-vitesse, 0, 0);
             ActSprite.sprite = Left;
         }
-        else ceci.velocity = new Vector3(0, 0, 0);
 
         transform.rotation = new Quaternion(0,0,0,0);
 
