@@ -8,6 +8,7 @@ public class ItemDetailsUI : MonoBehaviour
     public Image itemSpriteImage; // Image de l'item
     public Button equipButton; // Bouton pour équiper/déséquiper
     public Button dropButton; // Bouton pour jeter l'item
+    public GameObject gameObject;
 
     private Item currentItem; // Item actuellement affiché
     private Inventory inventory; // Référence à l'inventaire
@@ -22,7 +23,7 @@ public class ItemDetailsUI : MonoBehaviour
         itemNameText.text = item.nom;
         itemDescriptionText.text = item.Description;
         itemSpriteImage.sprite = item.sprite;
-
+        gameObject.SetActive(!gameObject.activeInHierarchy);
         // Configure le bouton Équiper/Déséquiper
         if (IsEquipped(item))
         {

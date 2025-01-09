@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,12 +17,17 @@ public class InventoryUI : MonoBehaviour
     {
         if (Input.GetKey(mapping.Inventory))
         {
-            UpdateUI();
-            inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeInHierarchy);
-            equipmentPanel.gameObject.SetActive(!equipmentPanel.gameObject.activeInHierarchy);
-            DetailsPanel = DetailsTemplate;
-            DetailsPanel.gameObject.SetActive(equipmentPanel.gameObject.activeInHierarchy);
+            UI();
+            System.Threading.Thread.Sleep(100);
         }
+    }
+    public void UI()
+    {
+        UpdateUI();
+        inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeInHierarchy);
+        equipmentPanel.gameObject.SetActive(!equipmentPanel.gameObject.activeInHierarchy);
+        DetailsPanel = DetailsTemplate;
+        DetailsPanel.gameObject.SetActive(false);
     }
     public void UpdateUI()
     {

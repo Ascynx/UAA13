@@ -7,6 +7,7 @@ public class ItemSlot : MonoBehaviour
     public Button slotButton; // Bouton du slot
     public Inventory inventory; // Référence à l'inventaire
     public ItemDetailsUI itemDetailsUI; // Interface des détails de l'item
+    public InventoryUI inventoryUI;
 
     private void Start()
     {
@@ -20,6 +21,9 @@ public class ItemSlot : MonoBehaviour
         if (item != null)
         {
             itemDetailsUI.DisplayItemDetails(item, inventory);
+            System.Threading.Thread.Sleep(100);
+            inventoryUI.UI();
+            inventoryUI.UI();
         }
     }
 }

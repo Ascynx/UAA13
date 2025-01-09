@@ -8,18 +8,17 @@ public class ChangeZone : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(Player.position, transform.position) < 0.5)
+        Physics2D.IgnoreLayerCollision(6, 7, true);
+        if (Vector3.Distance(Player.position, transform.position) < 1)
         {
             if (Player.position.z == -1)
             {
                 Player.position = new Vector3(Player.position.x, Player.position.y, 9);
-                Physics2D.IgnoreLayerCollision(gameObject.layer, 7, false);
-                Physics2D.IgnoreLayerCollision(gameObject.layer, 6, true);
+                Player.gameObject.layer = 7;
             } else
             {
                 Player.position = new Vector3(Player.position.x, Player.position.y, -1);
-                Physics2D.IgnoreLayerCollision(gameObject.layer, 6, false);
-                Physics2D.IgnoreLayerCollision(gameObject.layer, 7, true);
+                Player.gameObject.layer = 6;
             }
         }
     }

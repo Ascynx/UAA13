@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2dccdd5ec74d6f24e9d205f4c5ec4c8a
+guid: 7a0f68d57d59b8e45b2ceeb066ee3155
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -77,7 +77,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
-    mosaicPadding: 0
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -90,14 +90,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
-    mosaicPadding: 0
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638718374830353650
+  platformSettingsDirtyTick: 638718382689320983
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: SolVege
+  - name: SlimeVege
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: -0.42857146}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 16
-      height: 16
-    spriteID: 1948e4e0b5079ca409d722af665fbb17
+      x: 4
+      y: 4
+      width: 10
+      height: 7
+    spriteID: 48b05cd415bf1a34292d1f2d72cebba0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -140,25 +140,25 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
+    uvTransform: {x: 4, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 788624013
-    name: SolVege
+    guid: 531394567
+    name: SlimeVege
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: SolVege
+    - name: SlimeVege
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      spriteId: 1948e4e0b5079ca409d722af665fbb17
+        x: 3
+        y: 3
+        width: 10
+        height: 7
+      spriteId: 48b05cd415bf1a34292d1f2d72cebba0
     linkedCells: []
     parentIndex: -1
   platformSettings:

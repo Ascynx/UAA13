@@ -12,18 +12,15 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class Combat : MonoBehaviour
 {
-    public Transform Mob;
-    public mob ennemi;
     public Transform FightBackground;
-    public mob attacking;
-    public Transform tattacking;
-    public SpriteRenderer sprite;
-    Inventory inventaire;
+    mob attacking;
+    Transform tattacking;
+    public Inventory inventaire;
     public TextMeshProUGUI textPlayerPV, textMobPV;
 
-    public int playerPv;
+    int playerPv;
     public Attaque[] attack = new Attaque[4];
-    public mob.effect pEffect;
+    mob.effect pEffect;
 
 
     public void Fight(mob attacking, Transform tattacking)
@@ -35,7 +32,6 @@ public class Combat : MonoBehaviour
         textMobPV.color = Color.white;
         this.attacking = attacking;
         this.tattacking = tattacking;
-        sprite.sprite = attacking.sprite;
         initAtt(inventaire.equippedSword, out attack[0]);
         initAtt(inventaire.equippedParchemins[0], out attack[1]);
         initAtt(inventaire.equippedParchemins[1], out attack[2]);
