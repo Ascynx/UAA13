@@ -7692,7 +7692,7 @@ MonoBehaviour:
     m_ActionId: 8e5bac51-91cf-4eae-9d19-d47274fe7d5e
     m_ActionName: OpenWorld/Sprint[/Keyboard/numpad0,/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Clavier (Fleches)
+  m_DefaultControlScheme: Clavier
   m_DefaultActionMap: OpenWorld
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -8031,6 +8031,8 @@ MonoBehaviour:
   - {fileID: 1534554198}
   - {fileID: 659586071}
   - {fileID: 871609685}
+  _controlAtlas: {fileID: 100100200, guid: a4421d5412d57d347a71eccceb77fea1, type: 3}
+  RunTest: 0
 --- !u!114 &337375212
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         inputIntegration = ScriptableObject.CreateInstance<InputSystemIntegration>();
+        inputIntegration.SetPlayerInputInstance(GetComponent<PlayerInput>());
     }
 
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public float directionAcceleration = 10F;
-    [SerializeField] public Boolean estEnSprint = false;
+    public Boolean estEnSprint = false;
     Vector2 movementVector = Vector2.zero;
     
     public void OnDirection(InputValue value)
@@ -37,7 +38,12 @@ public class PlayerMovement : MonoBehaviour
     {
         var sprintPressedPercent = value.Get<float>();
         estEnSprint = sprintPressedPercent > 0.5F;
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+        #endif
     }
+
+    
 
     private void OnEditMovement(Vector2 velocity)
     {

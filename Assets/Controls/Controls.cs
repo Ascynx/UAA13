@@ -64,7 +64,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Clavier (WASD)"",
+                    ""groups"": ""Clavier"",
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -75,7 +75,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Clavier (WASD)"",
+                    ""groups"": ""Clavier"",
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -86,7 +86,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Clavier (WASD)"",
+                    ""groups"": ""Clavier"",
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -97,7 +97,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Clavier (WASD)"",
+                    ""groups"": ""Clavier"",
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -119,7 +119,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Clavier (Fleches)"",
+                    ""groups"": ""Clavier"",
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -130,7 +130,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Clavier (Fleches)"",
+                    ""groups"": ""Clavier"",
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -141,7 +141,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Clavier (Fleches)"",
+                    ""groups"": ""Clavier"",
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -152,30 +152,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Clavier (Fleches)"",
+                    ""groups"": ""Clavier"",
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d4d14d4e-3344-4389-9d2c-f06a5ba2d78c"",
+                    ""id"": ""6ed90035-6a79-4847-8807-671a149ca5dc"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Gamepad PS;Gamepad X;Gamepad S"",
                     ""action"": ""Direction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fdcac53c-bc02-48d7-b9b5-83e154cc5738"",
-                    ""path"": ""<Keyboard>/numpad0"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Clavier (Fleches)"",
-                    ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -185,18 +174,29 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Clavier (WASD)"",
+                    ""groups"": ""Clavier"",
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fa7d360b-f7c8-4cdc-9beb-6699e8d6f9ee"",
+                    ""id"": ""fdcac53c-bc02-48d7-b9b5-83e154cc5738"",
+                    ""path"": ""<Keyboard>/numpad0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1c87ae9-fb8e-4c88-996f-a06dbd91348a"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Gamepad PS;Gamepad X;Gamepad S"",
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -206,8 +206,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Clavier (WASD)"",
-            ""bindingGroup"": ""Clavier (WASD)"",
+            ""name"": ""Clavier"",
+            ""bindingGroup"": ""Clavier"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -217,22 +217,33 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Clavier (Fleches)"",
-            ""bindingGroup"": ""Clavier (Fleches)"",
+            ""name"": ""Gamepad PS"",
+            ""bindingGroup"": ""Gamepad PS"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<Keyboard>"",
+                    ""devicePath"": ""<DualShockGamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
             ]
         },
         {
-            ""name"": ""Gamepad"",
-            ""bindingGroup"": ""Gamepad"",
+            ""name"": ""Gamepad X"",
+            ""bindingGroup"": ""Gamepad X"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<Gamepad>"",
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Gamepad S"",
+            ""bindingGroup"": ""Gamepad S"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<SwitchProControllerHID>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -355,31 +366,40 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public OpenWorldActions @OpenWorld => new OpenWorldActions(this);
-    private int m_ClavierWASDSchemeIndex = -1;
-    public InputControlScheme ClavierWASDScheme
+    private int m_ClavierSchemeIndex = -1;
+    public InputControlScheme ClavierScheme
     {
         get
         {
-            if (m_ClavierWASDSchemeIndex == -1) m_ClavierWASDSchemeIndex = asset.FindControlSchemeIndex("Clavier (WASD)");
-            return asset.controlSchemes[m_ClavierWASDSchemeIndex];
+            if (m_ClavierSchemeIndex == -1) m_ClavierSchemeIndex = asset.FindControlSchemeIndex("Clavier");
+            return asset.controlSchemes[m_ClavierSchemeIndex];
         }
     }
-    private int m_ClavierFlechesSchemeIndex = -1;
-    public InputControlScheme ClavierFlechesScheme
+    private int m_GamepadPSSchemeIndex = -1;
+    public InputControlScheme GamepadPSScheme
     {
         get
         {
-            if (m_ClavierFlechesSchemeIndex == -1) m_ClavierFlechesSchemeIndex = asset.FindControlSchemeIndex("Clavier (Fleches)");
-            return asset.controlSchemes[m_ClavierFlechesSchemeIndex];
+            if (m_GamepadPSSchemeIndex == -1) m_GamepadPSSchemeIndex = asset.FindControlSchemeIndex("Gamepad PS");
+            return asset.controlSchemes[m_GamepadPSSchemeIndex];
         }
     }
-    private int m_GamepadSchemeIndex = -1;
-    public InputControlScheme GamepadScheme
+    private int m_GamepadXSchemeIndex = -1;
+    public InputControlScheme GamepadXScheme
     {
         get
         {
-            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
-            return asset.controlSchemes[m_GamepadSchemeIndex];
+            if (m_GamepadXSchemeIndex == -1) m_GamepadXSchemeIndex = asset.FindControlSchemeIndex("Gamepad X");
+            return asset.controlSchemes[m_GamepadXSchemeIndex];
+        }
+    }
+    private int m_GamepadSSchemeIndex = -1;
+    public InputControlScheme GamepadSScheme
+    {
+        get
+        {
+            if (m_GamepadSSchemeIndex == -1) m_GamepadSSchemeIndex = asset.FindControlSchemeIndex("Gamepad S");
+            return asset.controlSchemes[m_GamepadSSchemeIndex];
         }
     }
     public interface IOpenWorldActions

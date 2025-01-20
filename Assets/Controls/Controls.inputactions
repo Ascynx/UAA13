@@ -42,7 +42,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Clavier (WASD)",
+                    "groups": "Clavier",
                     "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -53,7 +53,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Clavier (WASD)",
+                    "groups": "Clavier",
                     "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -64,7 +64,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Clavier (WASD)",
+                    "groups": "Clavier",
                     "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -75,7 +75,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Clavier (WASD)",
+                    "groups": "Clavier",
                     "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -97,7 +97,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Clavier (Fleches)",
+                    "groups": "Clavier",
                     "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -108,7 +108,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Clavier (Fleches)",
+                    "groups": "Clavier",
                     "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -119,7 +119,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Clavier (Fleches)",
+                    "groups": "Clavier",
                     "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -130,30 +130,19 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Clavier (Fleches)",
+                    "groups": "Clavier",
                     "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "d4d14d4e-3344-4389-9d2c-f06a5ba2d78c",
+                    "id": "6ed90035-6a79-4847-8807-671a149ca5dc",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad PS;Gamepad X;Gamepad S",
                     "action": "Direction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fdcac53c-bc02-48d7-b9b5-83e154cc5738",
-                    "path": "<Keyboard>/numpad0",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Clavier (Fleches)",
-                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -163,18 +152,29 @@
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Clavier (WASD)",
+                    "groups": "Clavier",
                     "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "fa7d360b-f7c8-4cdc-9beb-6699e8d6f9ee",
+                    "id": "fdcac53c-bc02-48d7-b9b5-83e154cc5738",
+                    "path": "<Keyboard>/numpad0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Clavier",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1c87ae9-fb8e-4c88-996f-a06dbd91348a",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad PS;Gamepad X;Gamepad S",
                     "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -184,8 +184,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "Clavier (WASD)",
-            "bindingGroup": "Clavier (WASD)",
+            "name": "Clavier",
+            "bindingGroup": "Clavier",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
@@ -195,22 +195,33 @@
             ]
         },
         {
-            "name": "Clavier (Fleches)",
-            "bindingGroup": "Clavier (Fleches)",
+            "name": "Gamepad PS",
+            "bindingGroup": "Gamepad PS",
             "devices": [
                 {
-                    "devicePath": "<Keyboard>",
+                    "devicePath": "<DualShockGamepad>",
                     "isOptional": false,
                     "isOR": false
                 }
             ]
         },
         {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
+            "name": "Gamepad X",
+            "bindingGroup": "Gamepad X",
             "devices": [
                 {
-                    "devicePath": "<Gamepad>",
+                    "devicePath": "<XInputController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad S",
+            "bindingGroup": "Gamepad S",
+            "devices": [
+                {
+                    "devicePath": "<SwitchProControllerHID>",
                     "isOptional": false,
                     "isOR": false
                 }

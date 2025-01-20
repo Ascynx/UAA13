@@ -42,13 +42,11 @@ public class UIControlGroupManager : MonoBehaviour
     {
         if (text != null && _rawText != null && _rawText != text.text)
         {
-            Debug.Log("Mis à jour le texte");
             text.text = _rawText;
         }
 
         if (icon != null && _rawSprite != null && _rawSprite != icon.sprite)
         {
-            Debug.Log("Mis à jour le sprite");
             icon.sprite = _rawSprite;
         }
     }
@@ -60,7 +58,6 @@ public class UIControlGroupManager : MonoBehaviour
 
     public void UpdateSprite(Sprite sprite)
     {
-        Debug.Log(sprite);
         _rawSprite = sprite;
     }
 }

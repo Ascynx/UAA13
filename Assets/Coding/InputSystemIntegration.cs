@@ -1,20 +1,45 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.Utilities;
-using static InputIconsManager;
+using UnityEngine.U2D;
 
 public class InputSystemIntegration : ScriptableObject
 {
     private static PlayerControls controls;
-    private static InputIconsManager iconsManager;
+    private static PlayerInput _playerInputInstance;
 
-    private void Awake()
+    public void SetPlayerInputInstance(PlayerInput playerInputInstance)
+    {
+        _playerInputInstance = playerInputInstance;
+    }
+
+    private void OnEnable()
     {
         controls = new PlayerControls();
-        iconsManager = ScriptableObject.CreateInstance<InputIconsManager>();
+    }
+
+    public string GetControlScheme()
+    {
+        if (_playerInputInstance == null)
+        {
+            return "N/A";
+        }
+        return _playerInputInstance.currentControlScheme;
+    }
+
+    public string GetKeybindForAction(string action)
+    {
+        string controlScheme = GetControlScheme();
+        InputBinding binding = InputBinding.MaskByGroup(controlScheme);
+        InputAction map = _playerInputInstance.currentActionMap[action];
+        string stuff = map.GetBindingDisplayString(binding);
+        Debug.Log($"scheme: {controlScheme}, binding: {binding.name}, map: {map.name}, bound key: {stuff}");
+        return stuff;
     }
 
     /// <summary>
@@ -73,10 +98,5 @@ public class InputSystemIntegration : ScriptableObject
 
             inputAction.Enable();
         }
-    }
-
-    public InputIconsManager GetIconsManager()
-    {
-        return iconsManager;
     }
 }
