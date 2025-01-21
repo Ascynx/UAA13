@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Relique Vegetale
   m_EditorClassIdentifier: Assembly-CSharp::Relique
-  nom: 
+  nom: "Relique V\xE9g\xE9tale"
   Description: 
-  sprite: {fileID: 0}
+  sprite: {fileID: -3248138052897432729, guid: 0ad696ac756436842b0dc51177590c15, type: 3}
   id: 0
   attaque: {fileID: 0}
