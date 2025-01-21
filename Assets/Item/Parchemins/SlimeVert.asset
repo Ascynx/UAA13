@@ -15,4 +15,4 @@ MonoBehaviour:
   nom: Slime Vert
   Description: "Un jet de slime est lanc\xE9 en direction de l'ennemi"
   sprite: {fileID: -5802998938938032771, guid: 6a603d60d4489c64db9684a7651e4089, type: 3}
-  attaque: {fileID: 0}
+  attaque: {fileID: 11400000, guid: 4195b16a8bba47342a03f222fd754575, type: 2}

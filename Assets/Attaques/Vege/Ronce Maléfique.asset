@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nom: "Ronce Mal\xE9fique"
   effet: 7
-  power: 10
+  power: 24
   precision: 80
   ppmax: 20
   ppact: 20

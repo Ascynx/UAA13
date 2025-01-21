@@ -22,7 +22,7 @@ public class MobAI : MonoBehaviour
             if (!fightBG.activeInHierarchy)
             {
                 GetComponent<Rigidbody2D>().velocity = (player.position - transform.position).normalized;
-                if (distanceToPlayer <= 1)
+                if (distanceToPlayer <= transform.localScale.x && distanceToPlayer <= transform.localScale.y)
                 {
                     combat.Fight(me, transform);
                 }
