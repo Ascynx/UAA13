@@ -1,34 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using UnityEngine.InputSystem.Utilities;
-using UnityEngine.U2D;
 
-public class InputSystemIntegration : ScriptableObject
+public class InputSystemIntegration : MonoBehaviour
 {
-    private static PlayerControls controls;
-    private static PlayerInput _playerInputInstance;
+    private PlayerControls controls;
 
-    public void SetPlayerInputInstance(PlayerInput playerInputInstance)
-    {
-        _playerInputInstance = playerInputInstance;
-    }
+    [SerializeField]
+    private PlayerInput _playerInputInstance;
 
-    private void OnEnable()
+    private void Awake()
     {
         controls = new PlayerControls();
     }
 
     public string GetControlScheme()
     {
-        if (_playerInputInstance == null)
-        {
-            return "N/A";
-        }
         return _playerInputInstance.currentControlScheme;
     }
 
@@ -37,9 +23,19 @@ public class InputSystemIntegration : ScriptableObject
         string controlScheme = GetControlScheme();
         InputBinding binding = InputBinding.MaskByGroup(controlScheme);
         InputAction map = _playerInputInstance.currentActionMap[action];
-        string stuff = map.GetBindingDisplayString(binding);
-        Debug.Log($"scheme: {controlScheme}, binding: {binding.name}, map: {map.name}, bound key: {stuff}");
-        return stuff;
+        string boundKeys = map.GetBindingDisplayString(binding);
+
+        Debug.Log(binding.effectivePath);
+
+        if (binding.isComposite)
+        {
+            Debug.Log("Composite keybind");
+            //il a probablement laché, on récupère toutes les "sous"-bindings et on les concatènes.
+            boundKeys = binding.GetNameOfComposite();
+        }
+
+        Debug.Log($"scheme: {controlScheme}, binding: {binding.name}, map: {map.name}, bound key: {boundKeys}");
+        return boundKeys;
     }
 
     /// <summary>

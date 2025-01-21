@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public MappingButton mapping;
     public Inventory inventory;
     public Transform inventoryPanel; // Panel pour les items dans l'inventaire
     public Transform equipmentPanel; // Panel pour les équipements
@@ -12,17 +11,15 @@ public class InventoryUI : MonoBehaviour
     public GameObject itemSlotPrefab; // Préfabriqué d'un slot d'item
     public ItemDetailsUI itemDetailsUI; // Interface des détails de l'item
 
-    private void Update()
+    public void ShowPanel()
     {
-        if (Input.GetKey(mapping.Inventory))
-        {
-            UpdateUI();
-            inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeInHierarchy);
-            equipmentPanel.gameObject.SetActive(!equipmentPanel.gameObject.activeInHierarchy);
-            DetailsPanel = DetailsTemplate;
-            DetailsPanel.gameObject.SetActive(equipmentPanel.gameObject.activeInHierarchy);
-        }
+        UpdateUI();
+        inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeInHierarchy);
+        equipmentPanel.gameObject.SetActive(!equipmentPanel.gameObject.activeInHierarchy);
+        DetailsPanel = DetailsTemplate;
+        DetailsPanel.gameObject.SetActive(equipmentPanel.gameObject.activeInHierarchy);
     }
+
     public void UpdateUI()
     {
         // Met à jour l'inventaire

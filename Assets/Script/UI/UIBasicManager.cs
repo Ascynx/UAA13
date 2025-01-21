@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine.U2D;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class UIBasicManager : MonoBehaviour
 {
     public UIControlGroupManager[] ctrlGroups;
+
+    [SerializeField]
     private InputSystemIntegration inputIntegration;
     // Start is called before the first frame update
 
@@ -20,10 +21,12 @@ public class UIBasicManager : MonoBehaviour
         }
     }
 
-    void Awake()
+    public void OnInputSystemIntegrationLoaded(InputSystemIntegration inputSystemIntegration)
     {
-        DontDestroyOnLoad(this);
-        inputIntegration = ScriptableObject.FindFirstObjectByType<InputSystemIntegration>();
+        inputIntegration = inputSystemIntegration;
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+        #endif
     }
 
     [InspectorButton("Test")]

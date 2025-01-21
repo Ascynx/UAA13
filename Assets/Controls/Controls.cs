@@ -44,6 +44,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ee55c23-ca9d-4bd3-a36b-60fb56951e0d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -103,7 +112,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Arrows"",
+                    ""name"": ""ArrowsXY"",
                     ""id"": ""600da452-26e8-463f-a7d9-0363137d1374"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -200,6 +209,50 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9af9933-f794-425d-b3ae-7ee05a5b87a2"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88d3056b-92cb-4331-b0cf-12735038600f"",
+                    ""path"": ""<DualShockGamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad PS"",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e531ba40-afb6-4bdb-8638-0e55340faff8"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad X"",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e02be844-b4a5-4b4f-ba3a-322b0881ffe9"",
+                    ""path"": ""<SwitchProControllerHID>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad S"",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -255,6 +308,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_OpenWorld = asset.FindActionMap("OpenWorld", throwIfNotFound: true);
         m_OpenWorld_Direction = m_OpenWorld.FindAction("Direction", throwIfNotFound: true);
         m_OpenWorld_Sprint = m_OpenWorld.FindAction("Sprint", throwIfNotFound: true);
+        m_OpenWorld_OpenInventory = m_OpenWorld.FindAction("OpenInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -318,12 +372,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IOpenWorldActions> m_OpenWorldActionsCallbackInterfaces = new List<IOpenWorldActions>();
     private readonly InputAction m_OpenWorld_Direction;
     private readonly InputAction m_OpenWorld_Sprint;
+    private readonly InputAction m_OpenWorld_OpenInventory;
     public struct OpenWorldActions
     {
         private @PlayerControls m_Wrapper;
         public OpenWorldActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Direction => m_Wrapper.m_OpenWorld_Direction;
         public InputAction @Sprint => m_Wrapper.m_OpenWorld_Sprint;
+        public InputAction @OpenInventory => m_Wrapper.m_OpenWorld_OpenInventory;
         public InputActionMap Get() { return m_Wrapper.m_OpenWorld; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -339,6 +395,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @OpenInventory.started += instance.OnOpenInventory;
+            @OpenInventory.performed += instance.OnOpenInventory;
+            @OpenInventory.canceled += instance.OnOpenInventory;
         }
 
         private void UnregisterCallbacks(IOpenWorldActions instance)
@@ -349,6 +408,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @OpenInventory.started -= instance.OnOpenInventory;
+            @OpenInventory.performed -= instance.OnOpenInventory;
+            @OpenInventory.canceled -= instance.OnOpenInventory;
         }
 
         public void RemoveCallbacks(IOpenWorldActions instance)
@@ -406,5 +468,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnDirection(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnOpenInventory(InputAction.CallbackContext context);
     }
 }
