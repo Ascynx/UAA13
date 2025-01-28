@@ -8,7 +8,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class Combat : MonoBehaviour
 {

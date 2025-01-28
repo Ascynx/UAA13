@@ -1,16 +1,33 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static PreferenceValueFactory;
 
 public class PreferenceIntegration : MonoBehaviour
 {
+    ValueHandle<string> _playerLayoutHandle;
+    
     // Start is called before the first frame update
     void Start()
     {
-        ValueHandle<string> layoutHandle = PreferenceValueFactory.CreateHandleOf("PlayerLayout", "");
-        if (layoutHandle.GetValue() == null)
+        RegisterEventListeners();
+        _playerLayoutHandle = CreateHandleOf("PlayerLayout", "");
+        if (_playerLayoutHandle.GetValue() == null)
         {
+            _playerLayoutHandle.SetValue(GetControlScheme());
+        }
+    }
 
-            layoutHandle.SetValue(getKeyboardDefaultLayout());
+    private void RegisterEventListeners()
+    {
+        InputSystem.onDeviceChange += OnDeviceChanged;
+    }
+
+    private void OnDeviceChanged(InputDevice device, InputDeviceChange change)
+    {
+        if (change == InputDeviceChange.ConfigurationChanged)
+        {
+            Debug.Log("Changé de configuration pour un appareil, vérification du layout utilisé.");
+            _playerLayoutHandle.SetValue(GetControlScheme());
         }
     }
 
@@ -20,8 +37,8 @@ public class PreferenceIntegration : MonoBehaviour
         
     }
 
-    protected string getKeyboardDefaultLayout()
+    protected string GetControlScheme()
     {
-        return ""; //NOT YET IMPLEMENTED
+        return Jeu.Instance.inputIntegration.PlayerInputInstance.currentControlScheme;
     }
 }

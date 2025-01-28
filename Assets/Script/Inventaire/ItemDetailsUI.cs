@@ -8,7 +8,6 @@ public class ItemDetailsUI : MonoBehaviour
     public Image itemSpriteImage; // Image de l'item
     public Button equipButton; // Bouton pour équiper/déséquiper
     public Button dropButton; // Bouton pour jeter l'item
-    public GameObject gameObject;
 
     private Item currentItem; // Item actuellement affiché
     private Inventory inventory; // Référence à l'inventaire

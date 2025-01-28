@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ChangeZone : MonoBehaviour
 {
-    public Transform Player;
-
     void Update()
     {
+        Transform player = Jeu.Instance.player.transform;
+
         Physics2D.IgnoreLayerCollision(6, 7, true);
-        if (Vector3.Distance(Player.position, transform.position) < 1)
+        if (Vector3.Distance(player.position, transform.position) < 1)
         {
-            if (Player.position.z == -1)
+            if (player.position.z == -1)
             {
-                Player.position = new Vector3(Player.position.x, Player.position.y, 9);
-                Player.gameObject.layer = 7;
+                player.position = new Vector3(player.position.x, player.position.y, 9);
+                player.gameObject.layer = 7;
             } else
             {
-                Player.position = new Vector3(Player.position.x, Player.position.y, -1);
-                Player.gameObject.layer = 6;
+                player.position = new Vector3(player.position.x, player.position.y, -1);
+                player.gameObject.layer = 6;
             }
         }
     }

@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class PreferenceValueFactory
 {
-    public static ValueHandle<string> CreateHandleOf(string key, string t)
+    public static ValueHandle<string> CreateHandleOf(string key, string value)
     {
         return new StringHandle(key);
     }
 
-    public static ValueHandle<int> CreateHandleOf(string key, int t)
+    public static ValueHandle<int> CreateHandleOf(string key, int value)
     {
         return new IntHandle(key);
     }
 
-    public static ValueHandle<float> CreateHandleOf(string key, float t)
+    public static ValueHandle<float> CreateHandleOf(string key, float value)
     {
         return new FloatHandle(key);
     }
 
-    public static ValueHandle<bool> CreateHandleOf(string key, bool t)
+    public static ValueHandle<bool> CreateHandleOf(string key, bool value)
     {
         return new BooleanHandle(key);
     }
