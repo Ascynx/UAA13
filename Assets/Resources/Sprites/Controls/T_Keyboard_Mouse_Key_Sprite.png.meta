@@ -1656,7 +1656,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Enter
+      name: Keyboard_EnterAl
       rect:
         serializedVersion: 2
         x: 162
@@ -1677,7 +1677,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_EnterTall
+      name: Keyboard_EnterNumpad
       rect:
         serializedVersion: 2
         x: 219
@@ -1698,7 +1698,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_PlusTall
+      name: Keyboard_PlusNumpad
       rect:
         serializedVersion: 2
         x: 272
@@ -1719,7 +1719,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_ShiftAlt
+      name: Keyboard_ShiftRight
       rect:
         serializedVersion: 2
         x: 314
@@ -1740,7 +1740,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Shift
+      name: Keyboard_ShiftLeft
       rect:
         serializedVersion: 2
         x: 369
@@ -1971,7 +1971,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_UpArrow
+      name: Keyboard_ArrowUp
       rect:
         serializedVersion: 2
         x: 424
@@ -1992,7 +1992,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_DownArrow
+      name: Keyboard_ArrowDown
       rect:
         serializedVersion: 2
         x: 477
@@ -2013,7 +2013,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_LeftArrow
+      name: Keyboard_ArrowLeft
       rect:
         serializedVersion: 2
         x: 3
@@ -2034,7 +2034,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_RightArrow
+      name: Keyboard_ArrowRight
       rect:
         serializedVersion: 2
         x: 57
@@ -2183,6 +2183,10 @@ TextureImporter:
       Keyboard_A: 1472341313
       Keyboard_Alt: 1391144170
       Keyboard_AngleBracket: -913544162
+      Keyboard_ArrowDown: 1562101548
+      Keyboard_ArrowLeft: 1148425612
+      Keyboard_ArrowRight: -1213640880
+      Keyboard_ArrowUp: -172062131
       Keyboard_Asterisk: -496106509
       Keyboard_B: 345559696
       Keyboard_BackSpace: 418873474
@@ -2194,12 +2198,11 @@ TextureImporter:
       Keyboard_Cursor: 7141289
       Keyboard_D: 1427308170
       Keyboard_Delete: 2009962348
-      Keyboard_DownArrow: 1562101548
       Keyboard_E: -1914171352
       Keyboard_End: 624563298
-      Keyboard_Enter: 1259123026
+      Keyboard_EnterAl: 1259123026
       Keyboard_EnterAlt: 1517690140
-      Keyboard_EnterTall: -82473612
+      Keyboard_EnterNumpad: -82473612
       Keyboard_Escape: -285686553
       Keyboard_F: -1821289958
       Keyboard_F1: -1022293692
@@ -2223,7 +2226,6 @@ TextureImporter:
       Keyboard_J: 786047139
       Keyboard_K: 1179467796
       Keyboard_L: -11106274
-      Keyboard_LeftArrow: 1148425612
       Keyboard_LeftBracket: 1338055738
       Keyboard_LeftClick: 1401578304
       Keyboard_M: 1750270741
@@ -2243,25 +2245,23 @@ TextureImporter:
       Keyboard_PageDown: -351361036
       Keyboard_PageUp: 1729631365
       Keyboard_Plus: -1924794439
-      Keyboard_PlusTall: 1567157872
+      Keyboard_PlusNumpad: 1567157872
       Keyboard_PrintScreen: -193478353
       Keyboard_Q: 1025912192
       Keyboard_QuotationMark: -566766461
       Keyboard_R: -535619770
-      Keyboard_RightArrow: -1213640880
       Keyboard_RightBracket: 461924950
       Keyboard_RightClick: -1438577917
       Keyboard_S: -1168293504
       Keyboard_SemiColon: 1102438802
-      Keyboard_Shift: -1733288043
-      Keyboard_ShiftAlt: 425953379
+      Keyboard_ShiftLeft: -1733288043
+      Keyboard_ShiftRight: 425953379
       Keyboard_Slash: -1387605573
       Keyboard_Space: 1026778172
       Keyboard_T: -862153032
       Keyboard_Tab: -2074806070
       Keyboard_Tilde: 1277325776
       Keyboard_U: 1277640800
-      Keyboard_UpArrow: -172062131
       Keyboard_V: -1270227773
       Keyboard_W: -1751327702
       Keyboard_X: 1982382144

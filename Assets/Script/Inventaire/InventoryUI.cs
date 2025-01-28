@@ -11,13 +11,14 @@ public class InventoryUI : MonoBehaviour
     public GameObject itemSlotPrefab; // Préfabriqué d'un slot d'item
     public ItemDetailsUI itemDetailsUI; // Interface des détails de l'item
 
-    public void ShowPanel()
+    public bool ShowPanel()
     {
         UpdateUI();
         inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeInHierarchy);
         equipmentPanel.gameObject.SetActive(!equipmentPanel.gameObject.activeInHierarchy);
         DetailsPanel = DetailsTemplate;
         DetailsPanel.gameObject.SetActive(equipmentPanel.gameObject.activeInHierarchy);
+        return !inventoryPanel.gameObject.activeInHierarchy;
     }
 
     public void UpdateUI()

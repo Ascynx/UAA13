@@ -459,7 +459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_L
+      name: X_LS
       rect:
         serializedVersion: 2
         x: 24
@@ -480,11 +480,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_LXY
+      name: X_LSXY
       rect:
         serializedVersion: 2
-        x: 168
-        y: 1008
+        x: 172
+        y: 1006
         width: 128
         height: 128
       alignment: 0
@@ -501,7 +501,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_LX
+      name: X_LSX
       rect:
         serializedVersion: 2
         x: 336
@@ -522,7 +522,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_LY
+      name: X_LSY
       rect:
         serializedVersion: 2
         x: 528
@@ -543,7 +543,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_LUp
+      name: X_LSUp
       rect:
         serializedVersion: 2
         x: 24
@@ -564,7 +564,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_LDown
+      name: X_LSDown
       rect:
         serializedVersion: 2
         x: 192
@@ -585,7 +585,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_LLeft
+      name: X_LSLeft
       rect:
         serializedVersion: 2
         x: 336
@@ -606,7 +606,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_LRight
+      name: X_LSRight
       rect:
         serializedVersion: 2
         x: 528
@@ -627,7 +627,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_R
+      name: X_RS
       rect:
         serializedVersion: 2
         x: 24
@@ -648,7 +648,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_RXY
+      name: X_RSXY
       rect:
         serializedVersion: 2
         x: 168
@@ -669,7 +669,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_RX
+      name: X_RSX
       rect:
         serializedVersion: 2
         x: 336
@@ -690,7 +690,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_RY
+      name: X_RSY
       rect:
         serializedVersion: 2
         x: 528
@@ -711,7 +711,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_RUp
+      name: X_RSUp
       rect:
         serializedVersion: 2
         x: 24
@@ -732,7 +732,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_RDown
+      name: X_RSDown
       rect:
         serializedVersion: 2
         x: 192
@@ -753,7 +753,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_RLeft
+      name: X_RSLeft
       rect:
         serializedVersion: 2
         x: 336
@@ -774,7 +774,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: X_RRight
+      name: X_RSRight
       rect:
         serializedVersion: 2
         x: 528
@@ -1063,31 +1063,31 @@ TextureImporter:
       X_DUp: 1122714618
       X_DX: -1810003305
       X_DY: 642745369
-      X_L: 1816715860
       X_LB: 1827415161
-      X_LDown: -2086192640
-      X_LLeft: -393956527
       X_LPress: 580811590
       X_LPressW: 1395556694
-      X_LRight: 617234375
+      X_LS: 1816715860
+      X_LSDown: -2086192640
+      X_LSLeft: -393956527
+      X_LSRight: 617234375
+      X_LSUp: -120404363
+      X_LSX: 1226207266
+      X_LSXY: 1978861524
+      X_LSY: 1524797342
       X_LT: 1936306402
-      X_LUp: -120404363
-      X_LX: 1226207266
-      X_LXY: 1978861524
-      X_LY: 1524797342
       X_Menu: 1302805975
-      X_R: 1815608646
       X_RB: 332554584
-      X_RDown: -491899816
-      X_RLeft: 443716204
       X_RPress: 1814053338
       X_RPressW: -153355902
-      X_RRight: 871625141
+      X_RS: 1815608646
+      X_RSDown: -491899816
+      X_RSLeft: 443716204
+      X_RSRight: 871625141
+      X_RSUp: 1399077406
+      X_RSX: -404466885
+      X_RSXY: 2057557349
+      X_RSY: -1712964233
       X_RT: -1429166219
-      X_RUp: 1399077406
-      X_RX: -404466885
-      X_RXY: 2057557349
-      X_RY: -1712964233
       X_Share: -1889782434
       X_X: -677362736
       X_XColored: 304226131

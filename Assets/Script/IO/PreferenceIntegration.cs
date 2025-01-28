@@ -13,7 +13,7 @@ public class PreferenceIntegration : MonoBehaviour
         _playerLayoutHandle = CreateHandleOf("PlayerLayout", "");
         if (_playerLayoutHandle.GetValue() == null)
         {
-            _playerLayoutHandle.SetValue(GetKeyboardDefaultLayout());
+            _playerLayoutHandle.SetValue(GetControlScheme());
         }
     }
 
@@ -27,7 +27,7 @@ public class PreferenceIntegration : MonoBehaviour
         if (change == InputDeviceChange.ConfigurationChanged)
         {
             Debug.Log("Changé de configuration pour un appareil, vérification du layout utilisé.");
-            _playerLayoutHandle.SetValue(GetKeyboardDefaultLayout());
+            _playerLayoutHandle.SetValue(GetControlScheme());
         }
     }
 
@@ -37,12 +37,8 @@ public class PreferenceIntegration : MonoBehaviour
         
     }
 
-    protected string GetKeyboardDefaultLayout()
+    protected string GetControlScheme()
     {
-        if (Keyboard.current == null)
-        {
-            return null;
-        }
-        return Keyboard.current.keyboardLayout;
+        return Jeu.Instance.inputIntegration.PlayerInputInstance.currentControlScheme;
     }
 }

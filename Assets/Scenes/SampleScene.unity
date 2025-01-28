@@ -533,7 +533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440895873}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4702,7 +4702,6 @@ GameObject:
   - component: {fileID: 526471347}
   - component: {fileID: 526471341}
   - component: {fileID: 526471345}
-  - component: {fileID: 526471348}
   - component: {fileID: 526471340}
   - component: {fileID: 526471346}
   m_Layer: 6
@@ -4817,13 +4816,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526471338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519420032}
-  - {fileID: 1279272022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4925,19 +4923,6 @@ MonoBehaviour:
   m_DefaultActionMap: OpenWorld
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 519420031}
---- !u!114 &526471348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526471338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b08480820b535b4490fd6e3da3a4771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerInputInstance: {fileID: 526471347}
 --- !u!1 &543605451
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,7 +6020,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131298011}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6157,7 +6142,6 @@ MonoBehaviour:
   - {fileID: 741730806}
   - {fileID: 1107858843}
   - {fileID: 1469643031}
-  inputIntegration: {fileID: 526471348}
   _controlAtlas: {fileID: 100100200, guid: a4421d5412d57d347a71eccceb77fea1, type: 3}
   RunTest: 0
 --- !u!114 &1279272019
@@ -6238,7 +6222,7 @@ RectTransform:
   - {fileID: 741730807}
   - {fileID: 1107858844}
   - {fileID: 1469643032}
-  m_Father: {fileID: 526471343}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7466,6 +7450,97 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &2023300897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2023300900}
+  - component: {fileID: 2023300899}
+  - component: {fileID: 2023300898}
+  - component: {fileID: 2023300902}
+  - component: {fileID: 2023300903}
+  m_Layer: 0
+  m_Name: Jeu (Instances Globales)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2023300898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023300897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b08480820b535b4490fd6e3da3a4771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerInputInstance: {fileID: 526471347}
+--- !u!114 &2023300899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023300897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828a41f28660f2b4cb7cc6d90c104f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputIntegration: {fileID: 2023300898}
+  UICanvas: {fileID: 1279272021}
+  InventoryCanvas: {fileID: 1400934118}
+  player: {fileID: 526471338}
+  mainCamera: {fileID: 519420031}
+  sauvegarde: {fileID: 0}
+--- !u!4 &2023300900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023300897}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8.2125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2023300902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023300897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea63adcb8ed6dd84582387dcae407545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2023300903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023300897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94e7dbcce8002940b35b8765555023a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sauvegardeActuelle: {fileID: 0}
 --- !u!1 &2091388350
 GameObject:
   m_ObjectHideFlags: 0
@@ -7503,7 +7578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091388350}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -7754,7 +7829,9 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2023300900}
   - {fileID: 2091388352}
+  - {fileID: 1279272022}
   - {fileID: 526471343}
   - {fileID: 1400934119}
   - {fileID: 1131298014}

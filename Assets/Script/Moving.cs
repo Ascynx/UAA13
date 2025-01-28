@@ -1,4 +1,6 @@
 using System;
+using Unity.VisualScripting;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -14,11 +16,8 @@ public class Moving : MonoBehaviour
     public SpriteAtlas playerSpriteAtlas;
     public SpriteRenderer ActSprite;
     // Start is called before the first frame update
-
-    private InputSystemIntegration integration;
     void Awake()
     {
-        integration = gameObject.GetComponent<InputSystemIntegration>();
         Physics2D.IgnoreLayerCollision(gameObject.layer, 7, true);
     }
 
@@ -50,7 +49,7 @@ public class Moving : MonoBehaviour
     void Update()
     {
         bool inGui = false; //TODO hook ça quand l'inventaire est ouvert.
-        if (integration.SetActionState(inGui, "OpenWorld", out bool prev) && (prev && !inGui))
+        if (Jeu.Instance.inputIntegration.SetActionState(inGui, "OpenWorld", out bool prev) && (prev && !inGui))
         {
             //l'état précédent est actif, l'état actuel est inactif, on reset donc le vecteur de mouvement.
             movementVector = Vector2.zero;

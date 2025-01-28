@@ -37,6 +37,7 @@ public class InspectorButtonPropertyDrawer  : PropertyDrawer
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         InspectorButtonAttribute attr = (InspectorButtonAttribute)attribute;
+        GUI.enabled = Application.isPlaying;
 
         Rect buttonRect = new Rect(position.x + (position.width - attr.ButtonWidth) * 0.5f, position.y, attr.ButtonWidth, position.height);
         if (GUI.Button(buttonRect, label))

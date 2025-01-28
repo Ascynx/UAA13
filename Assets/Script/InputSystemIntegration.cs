@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +11,12 @@ public class InputSystemIntegration : MonoBehaviour
     [SerializeField]
     private PlayerInput _playerInputInstance;
 
-    private void Awake()
+    public PlayerInput PlayerInputInstance
+    {
+        get { return _playerInputInstance; }
+    }
+
+    private void OnEnable()
     {
         controls = new PlayerControls();
     }
@@ -18,24 +26,83 @@ public class InputSystemIntegration : MonoBehaviour
         return _playerInputInstance.currentControlScheme;
     }
 
-    public string GetKeybindForAction(string action)
+    public string KeybindToSpriteKey(InputBinding binding)
     {
         string controlScheme = GetControlScheme();
-        InputBinding binding = InputBinding.MaskByGroup(controlScheme);
-        InputAction map = _playerInputInstance.currentActionMap[action];
-        string boundKeys = map.GetBindingDisplayString(binding);
 
-        Debug.Log(binding.effectivePath);
-
-        if (binding.isComposite)
+        string groupPrefix = "";
+        switch (controlScheme)
         {
-            Debug.Log("Composite keybind");
-            //il a probablement laché, on récupère toutes les "sous"-bindings et on les concatènes.
-            boundKeys = binding.GetNameOfComposite();
+            case "Clavier":
+                {
+                    groupPrefix = "Keyboard";
+                    break;
+                }
+            case "Gamepad PS":
+                {
+                    groupPrefix = "P4";
+                    break;
+                }
+            case "Gamepad X":
+                {
+                    groupPrefix = "X";
+                    break;
+                }
+            case "Gamepad S":
+                {
+                    groupPrefix = "S";
+                    break;
+                }
+        }
+        return groupPrefix + "_" + DisplayKeyToSpriteKey(binding.ToDisplayString());
+    }
+
+    private static readonly string[] IGNORED_DETERMINANT = new string[]
+    {
+        "Numpad"
+    };
+
+    private string DisplayKeyToSpriteKey(string bindingDisplay)
+    {
+        string[] splits = bindingDisplay.Split(' ');
+        StringBuilder builder = new StringBuilder();
+        for (int i = splits.Length - 1; i >= 0; i--)
+        {
+            string split = splits[i];
+            if (IGNORED_DETERMINANT.Contains(split))
+            {
+                continue;
+            }
+
+            builder.Append(split);
+        }
+        return builder.ToString();
+    }
+
+    public List<InputBinding> GetKeybindsForAction(string actionString)
+    {
+        string controlScheme = GetControlScheme();
+
+        //les bindings peuvent être utilisé comme Query si on utilise les différents attributs comme Masques.
+        InputBinding searchMask = new()
+        {
+            action = actionString,
+            groups = controlScheme
+        };
+
+
+        InputAction action = _playerInputInstance.currentActionMap[actionString];
+        List<InputBinding> matchingBindings = new();
+        for (int i = 0; i < action.bindings.Count; i++)
+        {
+            InputBinding binding = action.bindings[i];
+            if (searchMask.Matches(binding))
+            {
+                matchingBindings.Add(binding);
+            }
         }
 
-        Debug.Log($"scheme: {controlScheme}, binding: {binding.name}, map: {map.name}, bound key: {boundKeys}");
-        return boundKeys;
+        return matchingBindings;
     }
 
     /// <summary>

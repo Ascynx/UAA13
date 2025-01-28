@@ -15,10 +15,17 @@ public class Inventory : MonoBehaviour
     public List<Parchemin> equippedParchemins = new List<Parchemin>();
     public Relique equippedRelique;
 
+    private void Awake()
+    {
+    }
+
     public void OnOpenInventory(InputValue value)
     {
-        Debug.Log("trying to open inventory");
-        inventoryCanvas.GetComponent<InventoryUI>().ShowPanel();
+        bool closedInventory = inventoryCanvas.GetComponent<InventoryUI>().ShowPanel();
+        if (!closedInventory)
+        {
+            Jeu.Instance.UICanvas.gameObject.GetComponent<UIBasicManager>().OnLeaveGui();
+        }
     }
 
     // Ajoute un item à l'inventaire

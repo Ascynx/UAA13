@@ -711,7 +711,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_L
+      name: P5_LS
       rect:
         serializedVersion: 2
         x: 23
@@ -732,7 +732,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_LXY
+      name: P5_LSXY
       rect:
         serializedVersion: 2
         x: 166
@@ -753,7 +753,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_LX
+      name: P5_LSX
       rect:
         serializedVersion: 2
         x: 335
@@ -774,7 +774,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_LY
+      name: P5_LSY
       rect:
         serializedVersion: 2
         x: 527
@@ -795,7 +795,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_LUp
+      name: P5_LSUp
       rect:
         serializedVersion: 2
         x: 23
@@ -816,7 +816,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_LDown
+      name: P5_LSDown
       rect:
         serializedVersion: 2
         x: 191
@@ -837,7 +837,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_LLeft
+      name: P5_LSLeft
       rect:
         serializedVersion: 2
         x: 335
@@ -858,7 +858,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_LRight
+      name: P5_LSRight
       rect:
         serializedVersion: 2
         x: 526
@@ -879,7 +879,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_R
+      name: P5_RS
       rect:
         serializedVersion: 2
         x: 23
@@ -900,7 +900,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_RXY
+      name: P5_RSXY
       rect:
         serializedVersion: 2
         x: 165
@@ -921,7 +921,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_RX
+      name: P5_RSX
       rect:
         serializedVersion: 2
         x: 335
@@ -942,7 +942,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_RY
+      name: P5_RSY
       rect:
         serializedVersion: 2
         x: 527
@@ -963,7 +963,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_RUp
+      name: P5_RSUp
       rect:
         serializedVersion: 2
         x: 23
@@ -984,7 +984,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_RDown
+      name: P5_RSDown
       rect:
         serializedVersion: 2
         x: 191
@@ -1005,7 +1005,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_RLeft
+      name: P5_RSLeft
       rect:
         serializedVersion: 2
         x: 335
@@ -1026,11 +1026,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P5_RRight
+      name: P5_RSRight
       rect:
         serializedVersion: 2
         x: 526
-        y: 864
+        y: 866
         width: 106
         height: 80
       alignment: 0
@@ -1445,7 +1445,6 @@ TextureImporter:
       P5_DUp: -1449720516
       P5_DX: -941237124
       P5_DY: 1753475313
-      P5_L: -1854574421
       P5_L1: 1115498904
       P5_L2: -81621399
       P5_L3: -499717633
@@ -1457,17 +1456,17 @@ TextureImporter:
       P5_L3X: 1078809671
       P5_L3XY: 1745943696
       P5_L3Y: 1126241462
-      P5_LDown: 1498926178
-      P5_LLeft: 1592102468
-      P5_LRight: -544523687
-      P5_LUp: 468080656
+      P5_LS: -1854574421
+      P5_LSDown: 1498926178
+      P5_LSLeft: 1592102468
+      P5_LSRight: -544523687
+      P5_LSUp: 468080656
+      P5_LSX: -38395659
+      P5_LSXY: 2106936105
+      P5_LSY: -1577869052
       P5_LW: 1311499474
-      P5_LX: -38395659
-      P5_LXY: 2106936105
-      P5_LY: -1577869052
       P5_Options: 89006892
       P5_P5XColored: 1244709962
-      P5_R: 465252045
       P5_R1: -16636688
       P5_R2: 458887784
       P5_R3: 2075732038
@@ -1480,14 +1479,15 @@ TextureImporter:
       P5_R3XY: 1570352503
       P5_R3Y: -878200087
       P5_R6: 1962670630
-      P5_RDown: -1120945523
-      P5_RLeft: 1134736204
-      P5_RRight: 336583376
-      P5_RUp: -1462199654
+      P5_RS: 465252045
+      P5_RSDown: -1120945523
+      P5_RSLeft: 1134736204
+      P5_RSRight: 336583376
+      P5_RSUp: -1462199654
+      P5_RSX: -1676360390
+      P5_RSXY: 2131190439
+      P5_RSY: 402957418
       P5_RW: -93830564
-      P5_RX: -1676360390
-      P5_RXY: 2131190439
-      P5_RY: 402957418
       P5_Share: -1354875936
       P5_Square: -1900104382
       P5_SquareColored: -1707693254

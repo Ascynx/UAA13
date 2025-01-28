@@ -711,7 +711,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_L
+      name: P4_LS
       rect:
         serializedVersion: 2
         x: 23
@@ -732,7 +732,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_LXY
+      name: P4_LSXY
       rect:
         serializedVersion: 2
         x: 168
@@ -753,7 +753,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_LX
+      name: P4_LSX
       rect:
         serializedVersion: 2
         x: 335
@@ -774,7 +774,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_LY
+      name: P4_LSY
       rect:
         serializedVersion: 2
         x: 527
@@ -795,7 +795,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_LUp
+      name: P4_LSUp
       rect:
         serializedVersion: 2
         x: 23
@@ -816,7 +816,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_LDown
+      name: P4_LSDown
       rect:
         serializedVersion: 2
         x: 191
@@ -837,7 +837,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_LLeft
+      name: P4_LSLeft
       rect:
         serializedVersion: 2
         x: 335
@@ -858,7 +858,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_LRight
+      name: P4_LSRight
       rect:
         serializedVersion: 2
         x: 527
@@ -879,7 +879,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_R
+      name: P4_RS
       rect:
         serializedVersion: 2
         x: 23
@@ -900,7 +900,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_RXY
+      name: P4_RSXY
       rect:
         serializedVersion: 2
         x: 167
@@ -921,7 +921,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_RX
+      name: P4_RSX
       rect:
         serializedVersion: 2
         x: 335
@@ -942,7 +942,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_RY
+      name: P4_RSY
       rect:
         serializedVersion: 2
         x: 527
@@ -963,7 +963,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_RUp
+      name: P4_RSUp
       rect:
         serializedVersion: 2
         x: 23
@@ -984,7 +984,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_RDown
+      name: P4_RSDown
       rect:
         serializedVersion: 2
         x: 191
@@ -1005,7 +1005,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_RLeft
+      name: P4_RSLeft
       rect:
         serializedVersion: 2
         x: 335
@@ -1026,7 +1026,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P4_RRight
+      name: P4_RSRight
       rect:
         serializedVersion: 2
         x: 527
@@ -1444,7 +1444,6 @@ TextureImporter:
       P4_DUp: -2108738866
       P4_DX: -1277974927
       P4_DY: 76013704
-      P4_L: 1830531733
       P4_L1: -1064117796
       P4_L2: -657088538
       P4_L3: 505001259
@@ -1457,17 +1456,17 @@ TextureImporter:
       P4_L3X: -278153017
       P4_L3XY: 199724155
       P4_L3Y: 624773065
-      P4_LDown: -1545416945
-      P4_LLeft: -245517261
       P4_LPress: -1274059718
       P4_LPressW: 558942026
-      P4_LRight: 1990966807
-      P4_LUp: 1679552470
-      P4_LX: -908076521
-      P4_LXY: 1462546993
-      P4_LY: -626678596
+      P4_LS: 1830531733
+      P4_LSDown: -1545416945
+      P4_LSLeft: -245517261
+      P4_LSRight: 1990966807
+      P4_LSUp: 1679552470
+      P4_LSX: -908076521
+      P4_LSXY: 1462546993
+      P4_LSY: -626678596
       P4_Options: -2147289883
-      P4_R: -1277534640
       P4_R1: -463939677
       P4_R2: 45624544
       P4_R3: 1498715186
@@ -1479,15 +1478,16 @@ TextureImporter:
       P4_R3X: 1514727341
       P4_R3XY: -825490296
       P4_R3Y: 421345739
-      P4_RDown: 452729342
-      P4_RLeft: -1590012453
       P4_RPress: 1979385084
       P4_RPressW: -1704057561
-      P4_RRight: -1500864873
-      P4_RUp: 720610429
-      P4_RX: 650633607
-      P4_RXY: -1254574005
-      P4_RY: -331846450
+      P4_RS: -1277534640
+      P4_RSDown: 452729342
+      P4_RSLeft: -1590012453
+      P4_RSRight: -1500864873
+      P4_RSUp: 720610429
+      P4_RSX: 650633607
+      P4_RSXY: -1254574005
+      P4_RSY: -331846450
       P4_Share: 280487865
       P4_Square: -980258815
       P4_SquareColored: -9236711

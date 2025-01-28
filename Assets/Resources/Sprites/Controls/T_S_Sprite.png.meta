@@ -630,8 +630,8 @@ TextureImporter:
       name: S_LSDown
       rect:
         serializedVersion: 2
-        x: 1
-        y: 841
+        x: 0
+        y: 843
         width: 126
         height: 126
       alignment: 0
