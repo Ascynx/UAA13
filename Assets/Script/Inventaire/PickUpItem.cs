@@ -5,13 +5,12 @@ using UnityEngine;
 public class PickUpItem : MonoBehaviour
 {
     public Item item;
-    
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.gameObject.name == "Player")
+        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 1)
         {
-            if (collision.GetComponent<Inventory>().AddItem(item))
+            if (GameObject.Find("Player").GetComponent<Inventory>().AddItem(item))
             {
                 Destroy(gameObject);
             }

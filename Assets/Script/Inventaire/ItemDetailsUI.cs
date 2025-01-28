@@ -22,7 +22,7 @@ public class ItemDetailsUI : MonoBehaviour
         itemNameText.text = item.nom;
         itemDescriptionText.text = item.Description;
         itemSpriteImage.sprite = item.sprite;
-
+        gameObject.SetActive(!gameObject.activeInHierarchy);
         // Configure le bouton Équiper/Déséquiper
         if (IsEquipped(item))
         {

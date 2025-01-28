@@ -8,44 +8,87 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class Combat : MonoBehaviour
 {
-    public Transform Mob;
-    public mob ennemi;
     public Transform FightBackground;
-    public mob attacking;
-    public Transform tattacking;
-    public SpriteRenderer sprite;
-    Inventory inventaire;
+    mob attacking;
+    Transform tattacking;
+    public Inventory inventaire;
     public TextMeshProUGUI textPlayerPV, textMobPV;
 
-    public int playerPv;
+    int playerPv;
     public Attaque[] attack = new Attaque[4];
-    public mob.effect pEffect;
+    mob.effect pEffect;
 
 
     public void Fight(mob attacking, Transform tattacking)
     {
-        inventaire = GameObject.Find("Player/Main Camera").GetComponent<Inventory>();
+        var t = inventaire.equippedSword;
         textPlayerPV.color = Color.white;
         pEffect = mob.effect.None;
         attacking.effet = mob.effect.None;
         textMobPV.color = Color.white;
         this.attacking = attacking;
         this.tattacking = tattacking;
-        sprite.sprite = attacking.sprite;
-        initAtt(inventaire.equippedSword, out attack[0]);
-        initAtt(inventaire.equippedParchemins[0], out attack[1]);
-        initAtt(inventaire.equippedParchemins[1], out attack[2]);
-        initAtt(inventaire.equippedParchemins[2], out attack[3]);
+        if (inventaire.equippedSword != null)
+        {
+            initAtt(inventaire.equippedSword, out attack[0]);
+        }
+        else
+        {
+            attack[0] = new Attaque(Attaque.effect.None, 10, 99, 1, "Lutte");
+        }
+        if (inventaire.equippedParchemins.Count >=1)
+        {
+            if (inventaire.equippedParchemins[0] != null)
+            {
+                initAtt(inventaire.equippedParchemins[0], out attack[1]);
+            }
+            else
+            {
+                attack[1] = new Attaque(Attaque.effect.None, 10, 99, 1, "Lutte");
+            }
+        }
+        else
+        {
+            attack[1] = new Attaque(Attaque.effect.None, 10, 99, 1, "Lutte");
+        }
+        if (inventaire.equippedParchemins.Count >= 2)
+        {
+            if (inventaire.equippedParchemins[1] != null)
+            {
+                initAtt(inventaire.equippedParchemins[1], out attack[2]);
+            }
+            else
+            {
+                attack[2] = new Attaque(Attaque.effect.None, 10, 99, 1, "Lutte");
+            }
+        }
+        else
+        {
+            attack[2] = new Attaque(Attaque.effect.None, 10, 99, 1, "Lutte");
+        }
+        if (inventaire.equippedParchemins.Count >= 3)
+        {
+            if (inventaire.equippedParchemins[2] != null)
+            {
+                initAtt(inventaire.equippedParchemins[2], out attack[3]);
+            }
+            else
+            {
+                attack[3] = new Attaque(Attaque.effect.None, 10, 99, 1, "Lutte");
+            }
+        }
+        else
+        {
+            attack[3] = new Attaque(Attaque.effect.None, 10, 99, 1, "Lutte");
+        }
         FightBackground.gameObject.SetActive(true);
-        GameObject.Find("BST").GetComponent<TextMeshProUGUI>().text = attack[0].nom;
         for (int i = 0; i < 4; i++)
         {
-            if (i == 0) GameObject.Find("BST").GetComponent<TextMeshProUGUI>().text = attack[0].nom;
-            else GameObject.Find("B" + i + "T").GetComponent<TextMeshProUGUI>().text = attack[i].nom;
+            if (i == 0) GameObject.Find("BST").GetComponentInChildren<TextMeshProUGUI>().text = attack[0].nom;
+            else GameObject.Find("B" + i + "T").GetComponentInChildren<TextMeshProUGUI>().text = attack[i].nom;
         }
         playerPv = 100;
         attacking.pvactuel = attacking.pvmax;
@@ -63,8 +106,8 @@ public class Combat : MonoBehaviour
             {
                 attack[i] = new Attaque(Attaque.effect.None, 10, 99, 1, "Lutte");
             }
-            if (i == 0) GameObject.Find("BST").GetComponent<TextMeshProUGUI>().text = attack[0].nom;
-            else GameObject.Find("B" + i + "T").GetComponent<TextMeshProUGUI>().text = attack[i].nom;
+            if (i == 0) GameObject.Find("BST").GetComponentInChildren<TextMeshProUGUI>().text = attack[0].nom;
+            else GameObject.Find("B" + i + "T").GetComponentInChildren<TextMeshProUGUI>().text = attack[i].nom;
         }
         for (int i = 0; i < attacking.attack.Length; i++)
         {
@@ -156,13 +199,13 @@ public class Combat : MonoBehaviour
             {
                 Parchemin parchemin = (Parchemin)enter;
                 sortie = parchemin.attaque;
-            }
+        }
             sortie.ppact = sortie.ppmax;
     }
     void initTurn(Attaque attackPlayer)
     {
         Attaque attackEnnemi;
-        attackEnnemi = attacking.attack[UnityEngine.Random.Range(0, attacking.attack.Length)];
+        attackEnnemi = attacking.attack[(int)UnityEngine.Random.Range(0, attacking.attack.Length-1)];
         turn(attackEnnemi, attackPlayer);
     }
     void turn(Attaque attackEnnemi, Attaque attackPlayer)
@@ -171,7 +214,14 @@ public class Combat : MonoBehaviour
         if (attacking.pvactuel > 0)
         {
             apliqueEffect(attackPlayer.effet, attacking.Type1, attacking.Type2, ref attacking.effet, ref attacking.pvactuel);
-            attaque(attackEnnemi, attacking.effet, pEffect, inventaire.equippedShield.def, ref playerPv);
+            if (inventaire.equippedShield != null)
+            {
+                attaque(attackEnnemi, attacking.effet, pEffect, inventaire.equippedShield.def, ref playerPv);
+            }
+            else
+            {
+                attaque(attackEnnemi, attacking.effet, pEffect, 0, ref playerPv);
+            }
             if (playerPv > 0)
             {
                 apliqueEffect(attackEnnemi.effet, mob.type.None, mob.type.None, ref pEffect, ref playerPv);

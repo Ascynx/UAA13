@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     public Shield equippedShield;
     public List<Parchemin> equippedParchemins = new List<Parchemin>();
     public Relique equippedRelique;
+    public InventoryUI inventoryUI;
 
     private void Awake()
     {
@@ -49,6 +50,9 @@ public class Inventory : MonoBehaviour
         {
             items.Remove(item);
             Debug.Log($"{item.nom} retiré de l'inventaire.");
+            System.Threading.Thread.Sleep(100);
+            inventoryUI.UI();
+            inventoryUI.UI();
             return true;
         }
 
@@ -59,12 +63,12 @@ public class Inventory : MonoBehaviour
     // Équipe un item
     public bool EquipItem(Item item)
     {
-        if (item is Sword sword)
+        if (item is Sword sword && equippedSword == null)
         {
             equippedSword = sword;
             Debug.Log($"Équipé l'épée : {sword.nom}");
         }
-        else if (item is Shield shield)
+        else if (item is Shield shield && equippedShield == null)
         {
             equippedShield = shield;
             Debug.Log($"Équipé le bouclier : {shield.nom}");
@@ -82,7 +86,7 @@ public class Inventory : MonoBehaviour
                 return false;
             }
         }
-        else if (item is Relique relique)
+        else if (item is Relique relique && equippedRelique == null)
         {
             equippedRelique = relique;
             Debug.Log($"Équipé la relique : {relique.nom}");
@@ -92,6 +96,9 @@ public class Inventory : MonoBehaviour
             Debug.Log("Cet item ne peut pas être équipé !");
             return false;
         }
+        System.Threading.Thread.Sleep(100);
+        inventoryUI.UI();
+        inventoryUI.UI();
         return true;
     }
 
@@ -123,6 +130,9 @@ public class Inventory : MonoBehaviour
             Debug.Log("Cet item n'est pas équipé !");
             return false;
         }
+        System.Threading.Thread.Sleep(100);
+        inventoryUI.UI();
+        inventoryUI.UI();
         return true;
     }
 }

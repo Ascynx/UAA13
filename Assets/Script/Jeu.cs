@@ -11,7 +11,7 @@ public class Jeu : MonoBehaviour
     public Canvas UICanvas;
 
     [SerializeField]
-    public Canvas InventoryCanvas;
+    public Canvas GUICanvas;
 
     [SerializeField]
     public GameObject player;
