@@ -10,4 +10,5 @@ public class MappingButton : MonoBehaviour
     public KeyCode Left;
     public KeyCode Run;
     public KeyCode Inventory;
+    public KeyCode Interact;
 }
