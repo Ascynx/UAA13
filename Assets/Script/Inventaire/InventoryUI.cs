@@ -4,37 +4,36 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public MappingButton mapping;
     public Inventory inventory;
     public Transform inventoryPanel; // Panel pour les items dans l'inventaire
-    public Transform equipmentPanel; // Panel pour les équipements
-    public Transform DetailsPanel; // Panel pour les équipements
-    public Transform DetailsTemplate; // Panel pour les équipements
-    public GameObject itemSlotPrefab; // Préfabriqué d'un slot d'item
-    public ItemDetailsUI itemDetailsUI; // Interface des détails de l'item
+    public Transform equipmentPanel; // Panel pour les ï¿½quipements
+    public Transform DetailsPanel; // Panel pour les ï¿½quipements
+    public Transform DetailsTemplate; // Panel pour les ï¿½quipements
+    public GameObject itemSlotPrefab; // Prï¿½fabriquï¿½ d'un slot d'item
+    public ItemDetailsUI itemDetailsUI; // Interface des dï¿½tails de l'item
 
-    private void Update()
+    public bool ShowPanel()
     {
-        if (Input.GetKey(mapping.Inventory))
-        {
-            UI();
-            System.Threading.Thread.Sleep(100);
-        }
+        bool etaitInactif = UI();
+        System.Threading.Thread.Sleep(100);
+        return etaitInactif;
     }
-    public void UI()
+    
+    public bool UI()
     {
         UpdateUI();
         inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeInHierarchy);
         equipmentPanel.gameObject.SetActive(!equipmentPanel.gameObject.activeInHierarchy);
         DetailsPanel = DetailsTemplate;
-        DetailsPanel.gameObject.SetActive(false);
+        DetailsPanel.gameObject.SetActive(equipmentPanel.gameObject.activeInHierarchy);
+        return !inventoryPanel.gameObject.activeInHierarchy;
     }
     public void UpdateUI()
     {
-        // Met à jour l'inventaire
+        // Met ï¿½ jour l'inventaire
         UpdateInventoryUI();
 
-        // Met à jour les équipements
+        // Met ï¿½ jour les ï¿½quipements
         UpdateEquipmentUI();
     }
 

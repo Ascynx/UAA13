@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
+    public Canvas inventoryCanvas;
+
     public List<Item> items = new List<Item>(); // Liste des items dans l'inventaire
     public int maxSlots = 20; // Nombre maximum d'items dans l'inventaire
 
@@ -12,6 +15,19 @@ public class Inventory : MonoBehaviour
     public List<Parchemin> equippedParchemins = new List<Parchemin>();
     public Relique equippedRelique;
     public InventoryUI inventoryUI;
+
+    private void Awake()
+    {
+    }
+
+    public void OnOpenInventory(InputValue value)
+    {
+        bool closedInventory = inventoryCanvas.GetComponent<InventoryUI>().ShowPanel();
+        if (!closedInventory)
+        {
+            Jeu.Instance.UICanvas.gameObject.GetComponent<UIBasicManager>().OnLeaveGui();
+        }
+    }
 
     // Ajoute un item à l'inventaire
     public bool AddItem(Item item)
