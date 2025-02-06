@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChangeZone : MonoBehaviour
 {
+    public Vector3 positionPostTeleport;
+
     void Update()
     {
         Transform player = Jeu.Instance.player.transform;
@@ -13,11 +15,11 @@ public class ChangeZone : MonoBehaviour
         {
             if (player.position.z == -1)
             {
-                player.position = new Vector3(player.position.x, player.position.y, 9);
+                player.position = positionPostTeleport;
                 player.gameObject.layer = 7;
             } else
             {
-                player.position = new Vector3(player.position.x, player.position.y, -1);
+                player.position = positionPostTeleport;
                 player.gameObject.layer = 6;
             }
         }
