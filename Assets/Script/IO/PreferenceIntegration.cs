@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static PreferenceValueFactory;
@@ -35,6 +36,17 @@ public class PreferenceIntegration : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public ValueHandle<bool> GetBoolPreferenceHandle(string name, bool def)
+    {
+        ValueHandle<bool> handle = PreferenceValueFactory.CreateHandleOf(name, def);
+        return handle;
+    }
+
+    public bool GetBoolPreference(string name, bool def)
+    {
+        return GetBoolPreferenceHandle(name, def).GetValue();
     }
 
     protected string GetControlScheme()

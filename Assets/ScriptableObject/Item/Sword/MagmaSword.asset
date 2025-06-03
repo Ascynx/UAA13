@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: MagmaSword
+  m_EditorClassIdentifier: Assembly-CSharp::Sword
+  nom: "\xC9p\xE9e de Magma"
+  Description: "Une \xE9p\xE9e bouillante"
+  sprite: {fileID: -5132386987050565715, guid: f0e811393b17abd4ab36a818d62c01f1, type: 3}
+  attaque: {fileID: 11400000, guid: 11ad248bba1976549a969ac44dbcbd09, type: 2}

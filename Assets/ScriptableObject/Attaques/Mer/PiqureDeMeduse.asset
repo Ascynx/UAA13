@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da46517ba63d334c88aae444c5c0f95, type: 3}
+  m_Name: PiqureDeMeduse
+  m_EditorClassIdentifier: 
+  nom: PiqureDeMeduse
+  effet: 1
+  power: 10
+  precision: 100
+  ppmax: 50
+  ppact: 50
+  sprite: {fileID: -5346663522337166310, guid: 28a768cc533cd144da50b77785c50d44, type: 3}

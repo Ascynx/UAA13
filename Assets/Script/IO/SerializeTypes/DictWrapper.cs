@@ -6,23 +6,17 @@ using UnityEngine;
 [System.Serializable]
 public class DictWrapper<TKey, TValue> : ISerializationCallbackReceiver
 {
-    [Serializable]
-    class KeyValue
-    {
-        public TKey Key;
-        public TValue Value;
-    }
 
     private Dictionary<TKey, TValue> _dict = new();
     public Dictionary<TKey, TValue> Dictionary => _dict;
 
     [SerializeField]
-    private List<KeyValue> _data = new();
+    private List<KeyValue<TKey, TValue>> _data = new();
 
     public void OnAfterDeserialize()
     {
         _dict.Clear();
-        foreach (KeyValue kv in _data)
+        foreach (KeyValue<TKey, TValue> kv in _data)
         {
             _dict.Add(kv.Key, kv.Value);
         }
@@ -33,7 +27,12 @@ public class DictWrapper<TKey, TValue> : ISerializationCallbackReceiver
         _data.Clear();
         foreach (var kv in _dict)
         {
-            _data.Add(new KeyValue { Key = kv.Key, Value = kv.Value });
+            _data.Add(new KeyValue<TKey, TValue> { Key = kv.Key, Value = kv.Value });
         }
+    }
+
+    public Dictionary<TKey, TValue>.Enumerator GetEnumerator()
+    {
+        return _dict.GetEnumerator();
     }
 }

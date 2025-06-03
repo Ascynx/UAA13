@@ -3,9 +3,6 @@ using UnityEngine.U2D;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Linq;
-
-
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -23,6 +20,9 @@ public class UIBasicManager : MonoBehaviour
         {
             ctrlGroups[i].enabled = false;
         }
+
+        //TODO déplacer ça vers l'évenement de chargement du monde aka quand le controlleur peut être utilisé.
+        ChargeAideControle();
     }
 
     [InspectorButton("Test")]
@@ -36,15 +36,15 @@ public class UIBasicManager : MonoBehaviour
 
         for (int i = 0; i < sprintBindings.Count; i++)
         {
-            string key = jeu.inputIntegration.KeybindToSpriteKey(sprintBindings[i]);
-            Sprite sprite = GetSprite(key);
-            Debug.Log($"{(sprite == null ? "Did not find" : "Found")} Sprite for key '{key}'");
+            Optional<string> key = jeu.inputIntegration.KeybindToSpriteKey(sprintBindings[i]);
+            Optional<Sprite> sprite = GetSprite(key.Get());
+            Debug.Log($"{(sprite.IsEmpty() ? "Did not find" : "Found")} Sprite for key '{key}'");
         }
         for (int j = 0; j < movementBindings.Count; j++)
         {
-            string key = jeu.inputIntegration.KeybindToSpriteKey(movementBindings[j]);
-            Sprite sprite = GetSprite(key);
-            Debug.Log($"{(sprite == null ? "Did not find" : "Found")} Sprite for key '{key}'");
+            Optional<string> key = jeu.inputIntegration.KeybindToSpriteKey(movementBindings[j]);
+            Optional<Sprite> sprite = GetSprite(key.Get());
+            Debug.Log($"{(sprite.IsEmpty() ? "Did not find" : "Found")} Sprite for key '{key}'");
         }
     }
 
@@ -53,21 +53,34 @@ public class UIBasicManager : MonoBehaviour
     {
     }
 
-    public void OnLeaveGui()
+    public void ChargeAideControle()
     {
         Jeu jeu = Jeu.Instance;
 
         List<InputBinding> sprintBindings = jeu.inputIntegration.GetKeybindsForAction("Sprint");
         InputBinding binding = sprintBindings.First();
         string textSprint = $"Sprint";
-        string spriteKeySprint = jeu.inputIntegration.KeybindToSpriteKey(binding);
-        SetAideControle(0, spriteKeySprint, textSprint);
+        Optional<string> spriteKeySprint = jeu.inputIntegration.KeybindToSpriteKey(binding);
+        SetAideControle(0, spriteKeySprint.OrElse("Keyboard_Cursor"), textSprint);
 
         List<InputBinding> openInventoryBinding = jeu.inputIntegration.GetKeybindsForAction("OpenInventory");
         InputBinding inventoryBinding = openInventoryBinding.First();
         string textInventory = $"Inventaire";
-        string spriteKeyInventory = jeu.inputIntegration.KeybindToSpriteKey(inventoryBinding);
-        SetAideControle(1, spriteKeyInventory, textInventory);
+        Optional<string> spriteKeyInventory = jeu.inputIntegration.KeybindToSpriteKey(inventoryBinding);
+        SetAideControle(1, spriteKeyInventory.OrElse("Keyboard_Cursor"), textInventory);
+
+        List<InputBinding> openLivreBindings = jeu.inputIntegration.GetKeybindsForAction("OpenLivre");
+        InputBinding openLivreBinding = openLivreBindings.First();
+        string textLivre = $"Livre";
+        Optional<string> spriteKeyLivre = jeu.inputIntegration.KeybindToSpriteKey(openLivreBinding);
+        if (spriteKeyLivre.IsPresent() && GetSprite(spriteKeyLivre.Get()).IsEmpty())
+        {
+            SetAideControle(2, "Keyboard_Cursor", textLivre);
+        } else
+        {
+            SetAideControle(2, spriteKeyLivre.OrElse("Keyboard_Cursor"), textLivre);
+        }
+        
     }
 
     public void SetAideControle(int index, string nomSprite, string texte)
@@ -77,9 +90,9 @@ public class UIBasicManager : MonoBehaviour
             throw new System.Exception("Peut pas modifier index " + index + " car supérieur à taille max.");
         }
 
-        Sprite sprite = GetSprite(nomSprite);
+        Optional<Sprite> sprite = GetSprite(nomSprite);
 
-        if (sprite == null)
+        if (sprite.IsEmpty())
         {
             throw new System.Exception("Peut pas modifier aide controle index: " + index + " car le sprite demandé n'existe pas");
         }
@@ -87,12 +100,12 @@ public class UIBasicManager : MonoBehaviour
         UIControlGroupManager manager = ctrlGroups[index];
 
         manager.UpdateText(texte);
-        manager.UpdateSprite(sprite);
+        manager.UpdateSprite(sprite.Get());
         manager.enabled = (texte != null && sprite != null);
     }
 
-    public Sprite GetSprite(string name)
+    public Optional<Sprite> GetSprite(string name)
     {
-        return _controlAtlas.GetSprite(name);
+        return Optional<Sprite>.OfNullable(_controlAtlas.GetSprite(name));
     }
 }

@@ -123,15 +123,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: ReliqueVegetal
     originalName: 
-    pivot: {x: 0.53846157, y: -0.083333336}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 13
-      height: 12
+      width: 16
+      height: 16
     spriteID: 8d7217c04eeec744394c79dc38d3bfd2
     spriteBone: []
     spriteOutline: []
@@ -154,10 +154,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 1
-        y: 1
-        width: 13
-        height: 12
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       spriteId: 8d7217c04eeec744394c79dc38d3bfd2
     linkedCells: []
     parentIndex: -1

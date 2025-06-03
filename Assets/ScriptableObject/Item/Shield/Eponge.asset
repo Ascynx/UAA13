@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Eponge
+  m_EditorClassIdentifier: Assembly-CSharp::Shield
+  nom: "\xC9ponge"
+  Description: "Une \xE9ponge extr\xE8mement r\xE9sistante, elle ferait un bon bouclier"
+  sprite: {fileID: -6285637094312103601, guid: 4935c6635ac17d645adc41937d43532c, type: 3}
+  def: 125

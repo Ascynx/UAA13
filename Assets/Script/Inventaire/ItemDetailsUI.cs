@@ -43,7 +43,7 @@ public class ItemDetailsUI : MonoBehaviour
     }
 
     // Vérifie si l'item est équipé
-    private bool IsEquipped(Item item)
+    public bool IsEquipped(Item item)
     {
         if (item is Sword && inventory.equippedSword == item) return true;
         if (item is Shield && inventory.equippedShield == item) return true;

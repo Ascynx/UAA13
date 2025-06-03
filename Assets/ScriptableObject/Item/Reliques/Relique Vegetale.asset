@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Relique Vegetale
+  m_EditorClassIdentifier: Assembly-CSharp::Relique
+  nom: "Relique V\xE9g\xE9tale"
+  Description: "Une sorte de cape qui permetterait des d\xE9placements \xE0 travers
+    certaines choses"
+  sprite: {fileID: -3248138052897432729, guid: 0ad696ac756436842b0dc51177590c15, type: 3}
+  id: 0
+  attaque: {fileID: 0}

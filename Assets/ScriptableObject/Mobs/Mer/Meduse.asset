@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f60566e4a0880541800fd67245947eb, type: 3}
+  m_Name: Meduse
+  m_EditorClassIdentifier: 
+  Type1: 4
+  Type2: 0
+  pvmax: 50
+  pvactuel: 50
+  def: 0
+  attack:
+  - {fileID: 11400000, guid: 30971cdfbb41a2946b04b4036d0394e7, type: 2}
+  sprite: {fileID: -5346663522337166310, guid: 28a768cc533cd144da50b77785c50d44, type: 3}

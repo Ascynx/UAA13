@@ -26,7 +26,7 @@ public class InputSystemIntegration : MonoBehaviour
         return _playerInputInstance.currentControlScheme;
     }
 
-    public string KeybindToSpriteKey(InputBinding binding)
+    public Optional<string> KeybindToSpriteKey(InputBinding binding)
     {
         string controlScheme = GetControlScheme();
 
@@ -54,7 +54,7 @@ public class InputSystemIntegration : MonoBehaviour
                     break;
                 }
         }
-        return groupPrefix + "_" + DisplayKeyToSpriteKey(binding.ToDisplayString());
+        return Optional<string>.Of(groupPrefix + "_" + DisplayKeyToSpriteKey(binding.ToDisplayString()));
     }
 
     private static readonly string[] IGNORED_DETERMINANT = new string[]
@@ -65,13 +65,18 @@ public class InputSystemIntegration : MonoBehaviour
     private string DisplayKeyToSpriteKey(string bindingDisplay)
     {
         string[] splits = bindingDisplay.Split(' ');
-        StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new();
         for (int i = splits.Length - 1; i >= 0; i--)
         {
             string split = splits[i];
             if (IGNORED_DETERMINANT.Contains(split))
             {
                 continue;
+            }
+
+            if (split.Length > 2 && split.StartsWith("\"") && split.EndsWith("\""))
+            {
+                split = split[1..^1];
             }
 
             builder.Append(split);
@@ -103,6 +108,38 @@ public class InputSystemIntegration : MonoBehaviour
         }
 
         return matchingBindings;
+    }
+
+    public void SwitchToGuiMap(out string oldMap)
+    {
+        SetActionMap("gui", out oldMap);
+    }
+
+    public void SwitchToOverworldMap(out string oldMap)
+    {
+        SetActionMap("OpenWorld", out oldMap);
+    }
+
+    /// <summary>
+    /// Permet de changer l'actionMap utilisée.
+    /// </summary>
+    /// <param name="actionMap">le nom de la map que l'on veut avoir actif</param>
+    /// <param name="oldMap">Le nom de la map qui était active.</param>
+    /// <returns>Si on a pu changer la map.</returns>
+    public bool SetActionMap(string actionMap, out string oldMap)
+    {
+        oldMap = actionMap;
+        if (_playerInputInstance.currentActionMap.name == actionMap)
+        {
+            return false;
+        }
+        _playerInputInstance.SwitchCurrentActionMap(actionMap);
+        return true;
+    }
+
+    public string GetCurrentActionMap()
+    {
+        return _playerInputInstance.currentActionMap.name;
     }
 
     /// <summary>

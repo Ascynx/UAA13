@@ -53,6 +53,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenLivre"",
+                    ""type"": ""Button"",
+                    ""id"": ""12e93a2c-40fe-4deb-a3b6-f323bb29906f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenPauseScreen"",
+                    ""type"": ""Button"",
+                    ""id"": ""56f77c0b-61ae-40c2-a936-177fb4148b28"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -253,6 +271,316 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""OpenInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8735e9cf-70ce-4ceb-87b5-6dac0ada0994"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a30a1605-1fcf-4d2c-a104-5a0c1425a4da"",
+                    ""path"": ""<Keyboard>/#(=)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""OpenLivre"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d25b1635-444f-45c9-8634-bac7ffd10faf"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad PS;Gamepad X;Gamepad S"",
+                    ""action"": ""OpenLivre"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""86b8116d-c219-4974-93c7-5c73b27c2e5b"",
+                    ""path"": ""<Keyboard>/#(A)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenLivre"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3e29c6b-4c44-447f-b983-ee9325d4cc2c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""OpenPauseScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5e6d8cd9-b7f3-4e06-8079-b76e2ff029e3"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""OpenPauseScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""032395c0-27a1-41ed-927e-b9dd892e4afe"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad PS;Gamepad X;Gamepad S"",
+                    ""action"": ""OpenPauseScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""gui"",
+            ""id"": ""5ab6f6da-576a-41d9-8beb-c88245568102"",
+            ""actions"": [
+                {
+                    ""name"": ""ExitGui"",
+                    ""type"": ""Button"",
+                    ""id"": ""3bc89138-ed90-46de-a317-68caf73fedfe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GuiSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""b25bb948-c09b-4985-929d-c4d83dabcbf2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GuiMove"",
+                    ""type"": ""Value"",
+                    ""id"": ""aa112d2c-b80a-4ace-96f0-ff3955e75089"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1fc923c2-f6f8-4b24-9b5d-e91c0d5bc414"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""ExitGui"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18de9c93-cf5e-41ce-bbd5-13bd6664e381"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""ExitGui"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc22cb1f-dbda-407e-8bda-6c3028fe9492"",
+                    ""path"": ""<DualShockGamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad PS"",
+                    ""action"": ""ExitGui"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""975c3e61-5455-4019-99f1-15a95de0c606"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad X"",
+                    ""action"": ""ExitGui"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02690427-960d-4ddf-b26f-c3ee0d384539"",
+                    ""path"": ""<SwitchProControllerHID>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad S"",
+                    ""action"": ""ExitGui"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bde3f8c-0943-427b-91f0-5a8dea2f0e4f"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""ExitGui"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c36b2993-80f4-42fb-b30c-95baefa31ee6"",
+                    ""path"": ""*/{Submit}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier;Gamepad PS;Gamepad X;Gamepad S"",
+                    ""action"": ""GuiSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca2018a9-668f-46b9-9174-8854fb0bd562"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad PS;Gamepad X;Gamepad S"",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""XYArrow"",
+                    ""id"": ""8e86a09d-6c69-418e-9709-cddb039f0012"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""c1965a8c-c6ff-45fa-b606-9f389c1a8b2c"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2e91bdc4-61e7-416e-af52-3656cd3ac0aa"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""854f74e0-c5dd-417e-b211-4cfa99af8d41"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3f4d4280-89eb-4483-b019-362437040340"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Clavier"",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left Stick (Composite)"",
+                    ""id"": ""09e7199b-96fc-4185-a33f-24c04054bf75"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b6268a26-9494-46ac-a729-413d81d1e679"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad PS;Gamepad X;Gamepad S"",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""fac4bd28-70d0-49b7-b0a7-a2ca245811a0"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad PS;Gamepad X;Gamepad S"",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c3965af6-d02f-4654-8983-c22d81df6b63"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad PS;Gamepad X;Gamepad S"",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""aa314c34-b1c6-4ad7-adb2-4772e0e1a0fc"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad PS;Gamepad X;Gamepad S"",
+                    ""action"": ""GuiMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -309,6 +637,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_OpenWorld_Direction = m_OpenWorld.FindAction("Direction", throwIfNotFound: true);
         m_OpenWorld_Sprint = m_OpenWorld.FindAction("Sprint", throwIfNotFound: true);
         m_OpenWorld_OpenInventory = m_OpenWorld.FindAction("OpenInventory", throwIfNotFound: true);
+        m_OpenWorld_OpenLivre = m_OpenWorld.FindAction("OpenLivre", throwIfNotFound: true);
+        m_OpenWorld_OpenPauseScreen = m_OpenWorld.FindAction("OpenPauseScreen", throwIfNotFound: true);
+        // gui
+        m_gui = asset.FindActionMap("gui", throwIfNotFound: true);
+        m_gui_ExitGui = m_gui.FindAction("ExitGui", throwIfNotFound: true);
+        m_gui_GuiSelect = m_gui.FindAction("GuiSelect", throwIfNotFound: true);
+        m_gui_GuiMove = m_gui.FindAction("GuiMove", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -373,6 +708,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_OpenWorld_Direction;
     private readonly InputAction m_OpenWorld_Sprint;
     private readonly InputAction m_OpenWorld_OpenInventory;
+    private readonly InputAction m_OpenWorld_OpenLivre;
+    private readonly InputAction m_OpenWorld_OpenPauseScreen;
     public struct OpenWorldActions
     {
         private @PlayerControls m_Wrapper;
@@ -380,6 +717,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Direction => m_Wrapper.m_OpenWorld_Direction;
         public InputAction @Sprint => m_Wrapper.m_OpenWorld_Sprint;
         public InputAction @OpenInventory => m_Wrapper.m_OpenWorld_OpenInventory;
+        public InputAction @OpenLivre => m_Wrapper.m_OpenWorld_OpenLivre;
+        public InputAction @OpenPauseScreen => m_Wrapper.m_OpenWorld_OpenPauseScreen;
         public InputActionMap Get() { return m_Wrapper.m_OpenWorld; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -398,6 +737,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @OpenInventory.started += instance.OnOpenInventory;
             @OpenInventory.performed += instance.OnOpenInventory;
             @OpenInventory.canceled += instance.OnOpenInventory;
+            @OpenLivre.started += instance.OnOpenLivre;
+            @OpenLivre.performed += instance.OnOpenLivre;
+            @OpenLivre.canceled += instance.OnOpenLivre;
+            @OpenPauseScreen.started += instance.OnOpenPauseScreen;
+            @OpenPauseScreen.performed += instance.OnOpenPauseScreen;
+            @OpenPauseScreen.canceled += instance.OnOpenPauseScreen;
         }
 
         private void UnregisterCallbacks(IOpenWorldActions instance)
@@ -411,6 +756,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @OpenInventory.started -= instance.OnOpenInventory;
             @OpenInventory.performed -= instance.OnOpenInventory;
             @OpenInventory.canceled -= instance.OnOpenInventory;
+            @OpenLivre.started -= instance.OnOpenLivre;
+            @OpenLivre.performed -= instance.OnOpenLivre;
+            @OpenLivre.canceled -= instance.OnOpenLivre;
+            @OpenPauseScreen.started -= instance.OnOpenPauseScreen;
+            @OpenPauseScreen.performed -= instance.OnOpenPauseScreen;
+            @OpenPauseScreen.canceled -= instance.OnOpenPauseScreen;
         }
 
         public void RemoveCallbacks(IOpenWorldActions instance)
@@ -428,6 +779,68 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public OpenWorldActions @OpenWorld => new OpenWorldActions(this);
+
+    // gui
+    private readonly InputActionMap m_gui;
+    private List<IGuiActions> m_GuiActionsCallbackInterfaces = new List<IGuiActions>();
+    private readonly InputAction m_gui_ExitGui;
+    private readonly InputAction m_gui_GuiSelect;
+    private readonly InputAction m_gui_GuiMove;
+    public struct GuiActions
+    {
+        private @PlayerControls m_Wrapper;
+        public GuiActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ExitGui => m_Wrapper.m_gui_ExitGui;
+        public InputAction @GuiSelect => m_Wrapper.m_gui_GuiSelect;
+        public InputAction @GuiMove => m_Wrapper.m_gui_GuiMove;
+        public InputActionMap Get() { return m_Wrapper.m_gui; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GuiActions set) { return set.Get(); }
+        public void AddCallbacks(IGuiActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GuiActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GuiActionsCallbackInterfaces.Add(instance);
+            @ExitGui.started += instance.OnExitGui;
+            @ExitGui.performed += instance.OnExitGui;
+            @ExitGui.canceled += instance.OnExitGui;
+            @GuiSelect.started += instance.OnGuiSelect;
+            @GuiSelect.performed += instance.OnGuiSelect;
+            @GuiSelect.canceled += instance.OnGuiSelect;
+            @GuiMove.started += instance.OnGuiMove;
+            @GuiMove.performed += instance.OnGuiMove;
+            @GuiMove.canceled += instance.OnGuiMove;
+        }
+
+        private void UnregisterCallbacks(IGuiActions instance)
+        {
+            @ExitGui.started -= instance.OnExitGui;
+            @ExitGui.performed -= instance.OnExitGui;
+            @ExitGui.canceled -= instance.OnExitGui;
+            @GuiSelect.started -= instance.OnGuiSelect;
+            @GuiSelect.performed -= instance.OnGuiSelect;
+            @GuiSelect.canceled -= instance.OnGuiSelect;
+            @GuiMove.started -= instance.OnGuiMove;
+            @GuiMove.performed -= instance.OnGuiMove;
+            @GuiMove.canceled -= instance.OnGuiMove;
+        }
+
+        public void RemoveCallbacks(IGuiActions instance)
+        {
+            if (m_Wrapper.m_GuiActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGuiActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GuiActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GuiActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GuiActions @gui => new GuiActions(this);
     private int m_ClavierSchemeIndex = -1;
     public InputControlScheme ClavierScheme
     {
@@ -469,5 +882,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnDirection(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnOpenInventory(InputAction.CallbackContext context);
+        void OnOpenLivre(InputAction.CallbackContext context);
+        void OnOpenPauseScreen(InputAction.CallbackContext context);
+    }
+    public interface IGuiActions
+    {
+        void OnExitGui(InputAction.CallbackContext context);
+        void OnGuiSelect(InputAction.CallbackContext context);
+        void OnGuiMove(InputAction.CallbackContext context);
     }
 }

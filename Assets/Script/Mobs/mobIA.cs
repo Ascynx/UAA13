@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class MobAI : MonoBehaviour
 {
-    public mob me;
+    public Mob me;
     public float moveSpeed;
     public float detectionRange;
 
@@ -15,7 +15,13 @@ public class MobAI : MonoBehaviour
     private float distanceToPlayer;
     private void Update()
     {
-        player = GameObject.Find("Player").transform;
+        GameObject playerGameObject = GameObject.Find("Player");
+        if (!Jeu.Instance.playerProperties.Alive)
+        {
+            //le joueur est inactif.
+            return;
+        }
+        player = playerGameObject.transform;
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer < detectionRange)
         {
@@ -25,9 +31,10 @@ public class MobAI : MonoBehaviour
                 {
                     GetComponent<Rigidbody2D>().velocity = (player.position - transform.position).normalized;
                 }
-                if (distanceToPlayer <= transform.localScale.x && distanceToPlayer <= transform.localScale.y)
+                if (distanceToPlayer <= gameObject.GetComponent<SpriteRenderer>().bounds.size.x*2)
                 {
                     combat.Fight(me, transform);
+                    Jeu.Instance.OpenGUI(combat);
                 }
             }
         else GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);

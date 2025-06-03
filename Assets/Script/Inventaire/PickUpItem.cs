@@ -6,13 +6,30 @@ public class PickUpItem : MonoBehaviour
 {
     public Item item;
 
+    private void Awake()
+    {
+        #if !UNITY_EDITOR
+        //évite d'avoir des items de test dans le jeu final, sauf en dev.
+        if (item.nom.StartsWith("Dev") && Jeu.Instance.preferenceIntegration.GetBoolPreference("inDev", false))
+        {
+            Destroy(gameObject);
+        }
+        #endif
+    }
+
     private void Update()
     {
-        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 1)
+        GameObject playerGameObject = GameObject.Find("Player");
+        if (!Jeu.Instance.playerProperties.Alive)
         {
-            if (GameObject.Find("Player").GetComponent<Inventory>().AddItem(item))
+            //le joueur est inactif.
+            return;
+        }
+        if (Vector3.Distance(playerGameObject.transform.position, transform.position) < 1)
+        {
+            if (playerGameObject.GetComponent<Inventory>().AddItem(item))
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

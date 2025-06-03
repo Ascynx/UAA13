@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : AbstractGUI
 {
     public Inventory inventory;
     public Transform inventoryPanel; // Panel pour les items dans l'inventaire
@@ -12,22 +12,50 @@ public class InventoryUI : MonoBehaviour
     public GameObject itemSlotPrefab; // Pr�fabriqu� d'un slot d'item
     public ItemDetailsUI itemDetailsUI; // Interface des d�tails de l'item
 
+
+    public override void OnCloseGui()
+    {
+        inventoryPanel.gameObject.SetActive(false);
+        equipmentPanel.gameObject.SetActive(false);
+        DetailsPanel.gameObject.SetActive(false);
+    }
+
+    public override void OnOpenGui()
+    {
+        ReloadUI();
+        inventoryPanel.gameObject.SetActive(true);
+        equipmentPanel.gameObject.SetActive(true);
+        DetailsPanel.gameObject.SetActive(true);
+    }
+
+    private void SetStates(bool newState)
+    {
+        inventoryPanel.gameObject.SetActive(newState);
+        equipmentPanel.gameObject.SetActive(newState);
+        DetailsPanel.gameObject.SetActive(newState);
+    }
+
     public bool ShowPanel()
     {
-        bool etaitInactif = UI();
+        bool etaitInactif = LoadUnloadUI();
         System.Threading.Thread.Sleep(100);
         return etaitInactif;
     }
-    
-    public bool UI()
+
+    public bool LoadUnloadUI()
     {
         UpdateUI();
-        inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeInHierarchy);
-        equipmentPanel.gameObject.SetActive(!equipmentPanel.gameObject.activeInHierarchy);
         DetailsPanel = DetailsTemplate;
-        DetailsPanel.gameObject.SetActive(equipmentPanel.gameObject.activeInHierarchy);
+        SetStates(!inventoryPanel.gameObject.activeInHierarchy);
         return !inventoryPanel.gameObject.activeInHierarchy;
     }
+
+    public void ReloadUI()
+    {
+        UpdateUI();
+        DetailsPanel = DetailsTemplate;
+    }
+
     public void UpdateUI()
     {
         // Met � jour l'inventaire
@@ -39,20 +67,44 @@ public class InventoryUI : MonoBehaviour
 
     private void UpdateInventoryUI()
     {
-        foreach (Transform child in inventoryPanel)
+        if (inventoryPanel.childCount > inventory.items.Count)
         {
-            Destroy(child.gameObject);
+            //clear overflow items.
+            for (int i = inventory.items.Count; i < inventoryPanel.childCount; i++)
+            {
+                Destroy(inventoryPanel.GetChild(i).gameObject);
+            }
         }
 
-        foreach (Item item in inventory.items)
+        for (int i = 0; i < inventory.items.Count; i++)
         {
-            GameObject slot = Instantiate(itemSlotPrefab, inventoryPanel);
-            var itemSlot = slot.GetComponent<ItemSlot>();
-            itemSlot.item = item;
-            itemSlot.inventory = inventory;
-            itemSlot.itemDetailsUI = itemDetailsUI;
+            Item item = inventory.items[i];
+            if (i < inventoryPanel.childCount)
+            {
+                for (int j = i; j < inventoryPanel.childCount; j++)
+                {
+                    if (inventoryPanel.GetChild(j).GetComponent<ItemSlot>().item == item)
+                    {
+                        break;
+                    } else
+                    {
+                        ItemSlot slot = inventoryPanel.GetChild(j).GetComponent<ItemSlot>();
+                        slot.item = item;
+                        slot.inventory = inventory;
+                        slot.itemDetailsUI = itemDetailsUI;
 
-            slot.transform.GetChild(0).GetComponent<Image>().sprite = item.sprite;
+                        slot.transform.GetChild(0).GetComponent<Image>().sprite = item.sprite;
+                    }
+                }
+            } else
+            {
+                GameObject slot = Instantiate(itemSlotPrefab, inventoryPanel);
+                var itemSlot = slot.GetComponent<ItemSlot>();
+                itemSlot.item = item;
+                itemSlot.inventory = inventory;
+                itemSlot.itemDetailsUI = itemDetailsUI;
+                slot.transform.GetChild(0).GetComponent<Image>().sprite = item.sprite;
+            }
         }
     }
 
@@ -77,7 +129,6 @@ public class InventoryUI : MonoBehaviour
         if (inventory.equippedRelique != null)
             CreateEquipmentSlot(inventory.equippedRelique);
     }
-
     private void CreateEquipmentSlot(Item item)
     {
         GameObject slot = Instantiate(itemSlotPrefab, equipmentPanel);
@@ -87,5 +138,26 @@ public class InventoryUI : MonoBehaviour
         itemSlot.itemDetailsUI = itemDetailsUI;
 
         slot.transform.GetChild(0).GetComponent<Image>().sprite = item.sprite;
+    }
+
+    public override void OnGuiMove(Vector2 dir)
+    {
+    }
+
+    public override void OnGuiSelect()
+    {
+    }
+
+    public override bool CanBeEscaped()
+    {
+        return true;
+    }
+
+    public override void OnSubGuiClosed()
+    {
+    }
+
+    public override void OnSubGuiOpen()
+    {
     }
 }
