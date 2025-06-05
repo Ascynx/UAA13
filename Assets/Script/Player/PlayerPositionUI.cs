@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,7 +16,6 @@ public class PlayerPositionUI : MonoBehaviour
         Rigidbody2D rigidbody = Jeu.Instance.player.GetComponent<Rigidbody2D>();
         Vector3 positionVector = rigidbody.position;
         Vector3 velocity = rigidbody.velocity;
-
-        _text.text = $"x: {positionVector.x},y: {positionVector.y},z: {positionVector.z}, velocity: {velocity}";
+        _text.text = $"X - {Math.Floor(positionVector.x * 10) / 10} Y - {Math.Floor(positionVector.y * 10) / 10}";
     }
 }
